@@ -1,0 +1,4 @@
+C:\Users\Brynjar\Documents\GitHub\VEFT-SA1\SA2\template\obj\Debug\netcoreapp2.0\small-assignment-2.csprojAssemblyReference.cache
+C:\Users\Brynjar\Documents\GitHub\VEFT-SA1\SA2\template\obj\Debug\netcoreapp2.0\small-assignment-2.csproj.CoreCompileInputs.cache
+C:\Users\Brynjar\Documents\GitHub\VEFT-SA1\SA2\template\obj\Debug\netcoreapp2.0\small-assignment-2.AssemblyInfoInputs.cache
+C:\Users\Brynjar\Documents\GitHub\VEFT-SA1\SA2\template\obj\Debug\netcoreapp2.0\small-assignment-2.AssemblyInfo.cs
