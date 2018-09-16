@@ -12543,11 +12543,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\Brynjar\\Documents\\GitHub\\VEFT-SA1\\SA2\\template\\small-assignment-2.csproj",
+      "projectUniqueName": "c:\\Users\\Brynjar\\Documents\\GitHub\\VEFT-SA1\\SA2\\TinySoldiers\\small-assignment-2.csproj",
       "projectName": "small-assignment-2",
-      "projectPath": "c:\\Users\\Brynjar\\Documents\\GitHub\\VEFT-SA1\\SA2\\template\\small-assignment-2.csproj",
+      "projectPath": "c:\\Users\\Brynjar\\Documents\\GitHub\\VEFT-SA1\\SA2\\TinySoldiers\\small-assignment-2.csproj",
       "packagesPath": "C:\\Users\\Brynjar\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\Brynjar\\Documents\\GitHub\\VEFT-SA1\\SA2\\template\\obj\\",
+      "outputPath": "c:\\Users\\Brynjar\\Documents\\GitHub\\VEFT-SA1\\SA2\\TinySoldiers\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
