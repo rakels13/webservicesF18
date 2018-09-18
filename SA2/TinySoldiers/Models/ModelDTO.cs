@@ -7,6 +7,5 @@ namespace TinySoldiers.Models
         public string Race { get; set; }
         public double Price { get; set; }
 
-    
     }
 }

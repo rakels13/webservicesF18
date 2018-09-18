@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<TestSequence>
+  <Test Name="CleanThatCode.Community.Tests.StringHelperTests.ToDotSeparatedString_ContainingTwoWords_ShouldContainASingleDot" Source="C:\Users\Brynjar\Documents\GitHub\Class Assignments\C5_CleanThatCode\CleanThatCode.Community.Tests\bin\Debug\netcoreapp2.0\CleanThatCode.Community.Tests.dll" />
+  <Test Name="CleanThatCode.Community.Tests.StringHelperTests.ToDotSeparatedString_ContainingThreeWords_ShouldContainTwoDots" Source="C:\Users\Brynjar\Documents\GitHub\Class Assignments\C5_CleanThatCode\CleanThatCode.Community.Tests\bin\Debug\netcoreapp2.0\CleanThatCode.Community.Tests.dll" />
+  <Test Name="CleanThatCode.Community.Tests.StringHelperTests.ToDotSeparatedString_ContainingSixWords_ShouldContainFiveDots" Source="C:\Users\Brynjar\Documents\GitHub\Class Assignments\C5_CleanThatCode\CleanThatCode.Community.Tests\bin\Debug\netcoreapp2.0\CleanThatCode.Community.Tests.dll" />
+  <Test Name="CleanThatCode.Community.Tests.StringHelperTests.CapitalizeAllWords_ContainingTwoWords_ShouldContainCapitalizedLetters" Source="C:\Users\Brynjar\Documents\GitHub\Class Assignments\C5_CleanThatCode\CleanThatCode.Community.Tests\bin\Debug\netcoreapp2.0\CleanThatCode.Community.Tests.dll" />
+</TestSequence>
