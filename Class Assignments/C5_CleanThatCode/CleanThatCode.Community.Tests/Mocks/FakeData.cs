@@ -72,7 +72,7 @@ namespace CleanThatCode.Community.Tests.Mocks
                         PostId = 1,
                         Author = "Lion-O",
                         Message = "Mum-Ra! You have been trying for years without success. I am not scared of you!",
-                        Created = DateTime.Parse("08/14/2016 13:22:15")
+                        Created = DateTime.Parse("08/12/2016 13:22:15")
                     }
                 };
             }

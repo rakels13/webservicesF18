@@ -176,28 +176,30 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Brynjar\\.nuget\\packages\\": {},
+    "C:\\Users\\Rakel\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\Brynjar\\Documents\\GitHub\\Class Assignments\\C5_CleanThatCode\\CleanThatCode.Community.Common\\CleanThatCode.Community.Common.csproj",
+      "projectUniqueName": "c:\\Users\\Rakel\\Documents\\GitHub\\VEFT-H18\\Class Assignments\\C5_CleanThatCode\\CleanThatCode.Community.Common\\CleanThatCode.Community.Common.csproj",
       "projectName": "CleanThatCode.Community.Common",
-      "projectPath": "c:\\Users\\Brynjar\\Documents\\GitHub\\Class Assignments\\C5_CleanThatCode\\CleanThatCode.Community.Common\\CleanThatCode.Community.Common.csproj",
-      "packagesPath": "C:\\Users\\Brynjar\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\Brynjar\\Documents\\GitHub\\Class Assignments\\C5_CleanThatCode\\CleanThatCode.Community.Common\\obj\\",
+      "projectPath": "c:\\Users\\Rakel\\Documents\\GitHub\\VEFT-H18\\Class Assignments\\C5_CleanThatCode\\CleanThatCode.Community.Common\\CleanThatCode.Community.Common.csproj",
+      "packagesPath": "C:\\Users\\Rakel\\.nuget\\packages\\",
+      "outputPath": "c:\\Users\\Rakel\\Documents\\GitHub\\VEFT-H18\\Class Assignments\\C5_CleanThatCode\\CleanThatCode.Community.Common\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Brynjar\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Rakel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

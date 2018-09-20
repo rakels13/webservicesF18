@@ -32,3 +32,15 @@ C:\Users\Brynjar\Documents\GitHub\Class Assignments\C5_CleanThatCode\CleanThatCo
 C:\Users\Brynjar\Documents\GitHub\Class Assignments\C5_CleanThatCode\CleanThatCode.Community.Repositories\obj\Debug\netstandard2.0\CleanThatCode.Community.Repositories.csproj.CopyComplete
 C:\Users\Brynjar\Documents\GitHub\Class Assignments\C5_CleanThatCode\CleanThatCode.Community.Repositories\obj\Debug\netstandard2.0\CleanThatCode.Community.Repositories.dll
 C:\Users\Brynjar\Documents\GitHub\Class Assignments\C5_CleanThatCode\CleanThatCode.Community.Repositories\obj\Debug\netstandard2.0\CleanThatCode.Community.Repositories.pdb
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Class Assignments\C5_CleanThatCode\CleanThatCode.Community.Repositories\bin\Debug\netstandard2.0\CleanThatCode.Community.Repositories.deps.json
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Class Assignments\C5_CleanThatCode\CleanThatCode.Community.Repositories\bin\Debug\netstandard2.0\CleanThatCode.Community.Repositories.dll
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Class Assignments\C5_CleanThatCode\CleanThatCode.Community.Repositories\bin\Debug\netstandard2.0\CleanThatCode.Community.Repositories.pdb
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Class Assignments\C5_CleanThatCode\CleanThatCode.Community.Repositories\bin\Debug\netstandard2.0\CleanThatCode.Community.Models.dll
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Class Assignments\C5_CleanThatCode\CleanThatCode.Community.Repositories\bin\Debug\netstandard2.0\CleanThatCode.Community.Models.pdb
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Class Assignments\C5_CleanThatCode\CleanThatCode.Community.Repositories\obj\Debug\netstandard2.0\CleanThatCode.Community.Repositories.csprojAssemblyReference.cache
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Class Assignments\C5_CleanThatCode\CleanThatCode.Community.Repositories\obj\Debug\netstandard2.0\CleanThatCode.Community.Repositories.csproj.CoreCompileInputs.cache
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Class Assignments\C5_CleanThatCode\CleanThatCode.Community.Repositories\obj\Debug\netstandard2.0\CleanThatCode.Community.Repositories.AssemblyInfoInputs.cache
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Class Assignments\C5_CleanThatCode\CleanThatCode.Community.Repositories\obj\Debug\netstandard2.0\CleanThatCode.Community.Repositories.AssemblyInfo.cs
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Class Assignments\C5_CleanThatCode\CleanThatCode.Community.Repositories\obj\Debug\netstandard2.0\CleanThatCode.Community.Repositories.csproj.CopyComplete
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Class Assignments\C5_CleanThatCode\CleanThatCode.Community.Repositories\obj\Debug\netstandard2.0\CleanThatCode.Community.Repositories.dll
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Class Assignments\C5_CleanThatCode\CleanThatCode.Community.Repositories\obj\Debug\netstandard2.0\CleanThatCode.Community.Repositories.pdb

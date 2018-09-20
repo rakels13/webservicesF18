@@ -32,6 +32,15 @@ namespace CleanThatCode.Community.Tests
             Assert.AreEqual(0, comments.Count());
 
         }
+
+        [TestMethod]
+        public void GetAllCommentsByPostId_GivenValidPostId_ShouldReturnTwoComments()
+        {
+            //Act
+            var comments = _commentRepository.GetAllCommentsByPostId(1);
+            //Assert
+            Assert.AreEqual(2,comments.Count());
+        }
         
     }
 }

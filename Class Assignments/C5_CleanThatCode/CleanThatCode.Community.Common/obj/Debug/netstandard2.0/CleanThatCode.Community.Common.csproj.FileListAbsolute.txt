@@ -23,3 +23,12 @@ C:\Users\Brynjar\Documents\GitHub\Class Assignments\C5_CleanThatCode\CleanThatCo
 C:\Users\Brynjar\Documents\GitHub\Class Assignments\C5_CleanThatCode\CleanThatCode.Community.Common\obj\Debug\netstandard2.0\CleanThatCode.Community.Common.AssemblyInfo.cs
 C:\Users\Brynjar\Documents\GitHub\Class Assignments\C5_CleanThatCode\CleanThatCode.Community.Common\obj\Debug\netstandard2.0\CleanThatCode.Community.Common.dll
 C:\Users\Brynjar\Documents\GitHub\Class Assignments\C5_CleanThatCode\CleanThatCode.Community.Common\obj\Debug\netstandard2.0\CleanThatCode.Community.Common.pdb
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Class Assignments\C5_CleanThatCode\CleanThatCode.Community.Common\bin\Debug\netstandard2.0\CleanThatCode.Community.Common.deps.json
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Class Assignments\C5_CleanThatCode\CleanThatCode.Community.Common\bin\Debug\netstandard2.0\CleanThatCode.Community.Common.dll
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Class Assignments\C5_CleanThatCode\CleanThatCode.Community.Common\bin\Debug\netstandard2.0\CleanThatCode.Community.Common.pdb
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Class Assignments\C5_CleanThatCode\CleanThatCode.Community.Common\obj\Debug\netstandard2.0\CleanThatCode.Community.Common.csprojAssemblyReference.cache
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Class Assignments\C5_CleanThatCode\CleanThatCode.Community.Common\obj\Debug\netstandard2.0\CleanThatCode.Community.Common.csproj.CoreCompileInputs.cache
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Class Assignments\C5_CleanThatCode\CleanThatCode.Community.Common\obj\Debug\netstandard2.0\CleanThatCode.Community.Common.AssemblyInfoInputs.cache
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Class Assignments\C5_CleanThatCode\CleanThatCode.Community.Common\obj\Debug\netstandard2.0\CleanThatCode.Community.Common.AssemblyInfo.cs
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Class Assignments\C5_CleanThatCode\CleanThatCode.Community.Common\obj\Debug\netstandard2.0\CleanThatCode.Community.Common.dll
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Class Assignments\C5_CleanThatCode\CleanThatCode.Community.Common\obj\Debug\netstandard2.0\CleanThatCode.Community.Common.pdb
