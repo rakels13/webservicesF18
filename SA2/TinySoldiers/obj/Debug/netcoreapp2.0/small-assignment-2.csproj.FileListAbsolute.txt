@@ -13,3 +13,14 @@ C:\Users\Brynjar\Documents\GitHub\VEFT-SA1\SA2\TinySoldiers\bin\Debug\netcoreapp
 C:\Users\Brynjar\Documents\GitHub\VEFT-SA1\SA2\TinySoldiers\bin\Debug\netcoreapp2.0\small-assignment-2.pdb
 C:\Users\Brynjar\Documents\GitHub\VEFT-SA1\SA2\TinySoldiers\obj\Debug\netcoreapp2.0\small-assignment-2.dll
 C:\Users\Brynjar\Documents\GitHub\VEFT-SA1\SA2\TinySoldiers\obj\Debug\netcoreapp2.0\small-assignment-2.pdb
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\SA2\TinySoldiers\bin\Debug\netcoreapp2.0\small-assignment-2.deps.json
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\SA2\TinySoldiers\bin\Debug\netcoreapp2.0\small-assignment-2.runtimeconfig.json
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\SA2\TinySoldiers\bin\Debug\netcoreapp2.0\small-assignment-2.runtimeconfig.dev.json
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\SA2\TinySoldiers\bin\Debug\netcoreapp2.0\small-assignment-2.dll
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\SA2\TinySoldiers\bin\Debug\netcoreapp2.0\small-assignment-2.pdb
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\SA2\TinySoldiers\obj\Debug\netcoreapp2.0\small-assignment-2.csprojAssemblyReference.cache
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\SA2\TinySoldiers\obj\Debug\netcoreapp2.0\small-assignment-2.csproj.CoreCompileInputs.cache
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\SA2\TinySoldiers\obj\Debug\netcoreapp2.0\small-assignment-2.AssemblyInfoInputs.cache
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\SA2\TinySoldiers\obj\Debug\netcoreapp2.0\small-assignment-2.AssemblyInfo.cs
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\SA2\TinySoldiers\obj\Debug\netcoreapp2.0\small-assignment-2.dll
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\SA2\TinySoldiers\obj\Debug\netcoreapp2.0\small-assignment-2.pdb

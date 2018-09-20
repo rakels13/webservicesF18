@@ -1,6 +1,8 @@
+using template.Models;
+
 namespace TinySoldiers.Models
 {
-    public class ModelDTO
+    public class ModelDTO : HyperMediaModel
     {
         public int Id { get; set; }
         public string Name { get; set; }
