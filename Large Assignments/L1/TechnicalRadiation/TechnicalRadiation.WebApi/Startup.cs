@@ -10,6 +10,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using TechnicalRadiation.Models.DetailDtos;
+using TechnicalRadiation.Models.Dtos;
+using TechnicalRadiation.Models.Entities;
+using TechnicalRadiation.Models.InputModels;
+using TechnicalRadiation.WebApi.Resolvers;
 
 namespace TechnicalRadiation.WebApi
 {
@@ -42,6 +47,36 @@ namespace TechnicalRadiation.WebApi
 
             app.UseHttpsRedirection();
             app.UseMvc();
+
+            AutoMapper.Mapper.Initialize(cfg => {
+                cfg.CreateMap<NewsItem, NewsItemDto>();
+                cfg.CreateMap<NewsItemDto, NewsItem>();
+                cfg.CreateMap<NewsItem, NewsItemDetailDto>();
+                cfg.CreateMap<NewsItemDetailDto, NewsItem>();
+                cfg.CreateMap<NewsItemInputModel, NewsItem>()
+                    .ForMember(m => m.CreatedDate, opt => opt.UseValue(DateTime.Now))
+                    .ForMember(m => m.ModifiedDate, opt => opt.UseValue(DateTime.Now))
+                    .ForMember(m => m.ModifiedBy, opt => opt.UseValue("NewsAdmin"));
+                cfg.CreateMap<Category, CategoryDto>()
+                    .ForMember(m => m.Slug, opt => opt.ResolveUsing<SlugResolver>());
+                cfg.CreateMap<CategoryDto, Category>();
+                cfg.CreateMap<Category, CategoryDetailDto>()
+                    .ForMember(m => m.Slug, opt => opt.ResolveUsing<SlugResolverDetail>());
+                cfg.CreateMap<CategoryDetailDto, Category>();
+                cfg.CreateMap<CategoryInputModel, Category>()
+                    .ForMember(m => m.CreatedDate, opt => opt.UseValue(DateTime.Now))
+                    .ForMember(m => m.ModifiedDate, opt => opt.UseValue(DateTime.Now))
+                    .ForMember(m => m.ModifiedBy, opt => opt.UseValue("NewsAdmin"));
+                cfg.CreateMap<Author, AuthorDto>();
+                cfg.CreateMap<AuthorDto, Author>();
+                cfg.CreateMap<Author, AuthorDetailDto>();
+                cfg.CreateMap<AuthorDetailDto, Author>();
+                cfg.CreateMap<AuthorInputModel, Author>()
+                    .ForMember(m => m.CreatedDate, opt => opt.UseValue(DateTime.Now))
+                    .ForMember(m => m.ModifiedDate, opt => opt.UseValue(DateTime.Now))
+                    .ForMember(m => m.ModifiedBy, opt => opt.UseValue("NewsAdmin"));
+
+            });
         }
     }
 }

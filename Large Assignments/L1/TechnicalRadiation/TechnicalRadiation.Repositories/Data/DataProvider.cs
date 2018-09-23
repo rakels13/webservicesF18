@@ -16,7 +16,9 @@ namespace TechnicalRadiation.Repositories.Data
                 ImgSource = "", //finna url
                 ShortDescription = "Lorem ipsum...",
                 LongDescription = "Lorem Ipsum..........",
-                PublishDate = DateTime.Parse("23/09/2018")
+                PublishDate = DateTime.Parse("23/09/2018"),
+                AuthorId = 1,
+                CategoryId =1,
             },
             new NewsItem
             {
@@ -25,7 +27,9 @@ namespace TechnicalRadiation.Repositories.Data
                 ImgSource = "", //finna url
                 ShortDescription = "Lorem ipsum...",
                 LongDescription = "Lorem Ipsum..........",
-                PublishDate = DateTime.Parse("23/09/2018")
+                PublishDate = DateTime.Parse("23/09/2018"),
+                AuthorId = 1,
+                CategoryId =1,
             },
             new NewsItem
             {
@@ -34,7 +38,9 @@ namespace TechnicalRadiation.Repositories.Data
                 ImgSource = "", //finna url
                 ShortDescription = "Lorem ipsum...",
                 LongDescription = "Lorem Ipsum..........",
-                PublishDate = DateTime.Parse("23/09/2018")
+                PublishDate = DateTime.Parse("23/09/2018"),
+                AuthorId = 1,
+                CategoryId =1,
             },
             new NewsItem
             {
@@ -43,7 +49,9 @@ namespace TechnicalRadiation.Repositories.Data
                 ImgSource = "", //finna url
                 ShortDescription = "Lorem ipsum...",
                 LongDescription = "Lorem Ipsum..........",
-                PublishDate = DateTime.Parse("23/09/2018")
+                PublishDate = DateTime.Parse("23/09/2018"),
+                AuthorId = 1,
+                CategoryId =1,
             },
             new NewsItem
             {
@@ -52,7 +60,9 @@ namespace TechnicalRadiation.Repositories.Data
                 ImgSource = "", //finna url
                 ShortDescription = "Lorem ipsum...",
                 LongDescription = "Lorem Ipsum..........",
-                PublishDate = DateTime.Parse("23/09/2018")
+                PublishDate = DateTime.Parse("23/09/2018"),
+                AuthorId = 1,
+                CategoryId =1,
             },
 
         };
