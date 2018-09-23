@@ -56,7 +56,7 @@ namespace TechnicalRadiation.Repositories.Data
             },
 
         };
-        public static List<NewsItem> Models { get => _newsItem; set => _newsItem = value; }
+        public static List<NewsItem> NewsItems { get => _newsItem; set => _newsItem = value; }
 
         private static List<Author> _author = new List<Author> 
         {
@@ -79,6 +79,7 @@ namespace TechnicalRadiation.Repositories.Data
         {
             new Category
             {
+                Id = 1,
                 Name = "",
                 Slug = "",
                 ParentCategoryId = 0,
