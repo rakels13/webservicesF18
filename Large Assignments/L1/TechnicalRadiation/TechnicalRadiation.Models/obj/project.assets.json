@@ -182,11 +182,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Rakel\\Documents\\GitHub\\VEFT-H18\\Large Assignments\\L1\\TechnicalRadiation\\TechnicalRadiation.Models\\TechnicalRadiation.Models.csproj",
+      "projectUniqueName": "c:\\Users\\Rakel\\Documents\\GitHub\\VEFT-H18\\Large Assignments\\L1\\TechnicalRadiation\\TechnicalRadiation.Models\\TechnicalRadiation.Models.csproj",
       "projectName": "TechnicalRadiation.Models",
-      "projectPath": "C:\\Users\\Rakel\\Documents\\GitHub\\VEFT-H18\\Large Assignments\\L1\\TechnicalRadiation\\TechnicalRadiation.Models\\TechnicalRadiation.Models.csproj",
+      "projectPath": "c:\\Users\\Rakel\\Documents\\GitHub\\VEFT-H18\\Large Assignments\\L1\\TechnicalRadiation\\TechnicalRadiation.Models\\TechnicalRadiation.Models.csproj",
       "packagesPath": "C:\\Users\\Rakel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Rakel\\Documents\\GitHub\\VEFT-H18\\Large Assignments\\L1\\TechnicalRadiation\\TechnicalRadiation.Models\\obj\\",
+      "outputPath": "c:\\Users\\Rakel\\Documents\\GitHub\\VEFT-H18\\Large Assignments\\L1\\TechnicalRadiation\\TechnicalRadiation.Models\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

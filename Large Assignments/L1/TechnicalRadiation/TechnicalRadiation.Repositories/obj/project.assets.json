@@ -25,6 +25,16 @@
         "build": {
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
+      },
+      "TechnicalRadiation.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/TechnicalRadiation.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TechnicalRadiation.Models.dll": {}
+        }
       }
     }
   },
@@ -168,11 +178,17 @@
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
+    },
+    "TechnicalRadiation.Models/1.0.0": {
+      "type": "project",
+      "path": "../TechnicalRadiation.Models/TechnicalRadiation.Models.csproj",
+      "msbuildProject": "../TechnicalRadiation.Models/TechnicalRadiation.Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
-      "NETStandard.Library >= 2.0.3"
+      "NETStandard.Library >= 2.0.3",
+      "TechnicalRadiation.Models >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -182,11 +198,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Rakel\\Documents\\GitHub\\VEFT-H18\\Large Assignments\\L1\\TechnicalRadiation\\TechnicalRadiation.Repositories\\TechnicalRadiation.Repositories.csproj",
+      "projectUniqueName": "c:\\Users\\Rakel\\Documents\\GitHub\\VEFT-H18\\Large Assignments\\L1\\TechnicalRadiation\\TechnicalRadiation.Repositories\\TechnicalRadiation.Repositories.csproj",
       "projectName": "TechnicalRadiation.Repositories",
-      "projectPath": "C:\\Users\\Rakel\\Documents\\GitHub\\VEFT-H18\\Large Assignments\\L1\\TechnicalRadiation\\TechnicalRadiation.Repositories\\TechnicalRadiation.Repositories.csproj",
+      "projectPath": "c:\\Users\\Rakel\\Documents\\GitHub\\VEFT-H18\\Large Assignments\\L1\\TechnicalRadiation\\TechnicalRadiation.Repositories\\TechnicalRadiation.Repositories.csproj",
       "packagesPath": "C:\\Users\\Rakel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Rakel\\Documents\\GitHub\\VEFT-H18\\Large Assignments\\L1\\TechnicalRadiation\\TechnicalRadiation.Repositories\\obj\\",
+      "outputPath": "c:\\Users\\Rakel\\Documents\\GitHub\\VEFT-H18\\Large Assignments\\L1\\TechnicalRadiation\\TechnicalRadiation.Repositories\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -204,7 +220,11 @@
       },
       "frameworks": {
         "netstandard2.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "c:\\Users\\Rakel\\Documents\\GitHub\\VEFT-H18\\Large Assignments\\L1\\TechnicalRadiation\\TechnicalRadiation.Models\\TechnicalRadiation.Models.csproj": {
+              "projectPath": "c:\\Users\\Rakel\\Documents\\GitHub\\VEFT-H18\\Large Assignments\\L1\\TechnicalRadiation\\TechnicalRadiation.Models\\TechnicalRadiation.Models.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

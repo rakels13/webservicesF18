@@ -25,6 +25,29 @@
         "build": {
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
+      },
+      "TechnicalRadiation.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/TechnicalRadiation.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TechnicalRadiation.Models.dll": {}
+        }
+      },
+      "TechnicalRadiation.Repositories/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "TechnicalRadiation.Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/TechnicalRadiation.Repositories.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TechnicalRadiation.Repositories.dll": {}
+        }
       }
     }
   },
@@ -168,11 +191,23 @@
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
+    },
+    "TechnicalRadiation.Models/1.0.0": {
+      "type": "project",
+      "path": "../TechnicalRadiation.Models/TechnicalRadiation.Models.csproj",
+      "msbuildProject": "../TechnicalRadiation.Models/TechnicalRadiation.Models.csproj"
+    },
+    "TechnicalRadiation.Repositories/1.0.0": {
+      "type": "project",
+      "path": "../TechnicalRadiation.Repositories/TechnicalRadiation.Repositories.csproj",
+      "msbuildProject": "../TechnicalRadiation.Repositories/TechnicalRadiation.Repositories.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
-      "NETStandard.Library >= 2.0.3"
+      "NETStandard.Library >= 2.0.3",
+      "TechnicalRadiation.Models >= 1.0.0",
+      "TechnicalRadiation.Repositories >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -182,11 +217,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Rakel\\Documents\\GitHub\\VEFT-H18\\Large Assignments\\L1\\TechnicalRadiation\\TechnicalRadiation.Services\\TechnicalRadiation.Services.csproj",
+      "projectUniqueName": "c:\\Users\\Rakel\\Documents\\GitHub\\VEFT-H18\\Large Assignments\\L1\\TechnicalRadiation\\TechnicalRadiation.Services\\TechnicalRadiation.Services.csproj",
       "projectName": "TechnicalRadiation.Services",
-      "projectPath": "C:\\Users\\Rakel\\Documents\\GitHub\\VEFT-H18\\Large Assignments\\L1\\TechnicalRadiation\\TechnicalRadiation.Services\\TechnicalRadiation.Services.csproj",
+      "projectPath": "c:\\Users\\Rakel\\Documents\\GitHub\\VEFT-H18\\Large Assignments\\L1\\TechnicalRadiation\\TechnicalRadiation.Services\\TechnicalRadiation.Services.csproj",
       "packagesPath": "C:\\Users\\Rakel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Rakel\\Documents\\GitHub\\VEFT-H18\\Large Assignments\\L1\\TechnicalRadiation\\TechnicalRadiation.Services\\obj\\",
+      "outputPath": "c:\\Users\\Rakel\\Documents\\GitHub\\VEFT-H18\\Large Assignments\\L1\\TechnicalRadiation\\TechnicalRadiation.Services\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -204,7 +239,14 @@
       },
       "frameworks": {
         "netstandard2.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "c:\\Users\\Rakel\\Documents\\GitHub\\VEFT-H18\\Large Assignments\\L1\\TechnicalRadiation\\TechnicalRadiation.Models\\TechnicalRadiation.Models.csproj": {
+              "projectPath": "c:\\Users\\Rakel\\Documents\\GitHub\\VEFT-H18\\Large Assignments\\L1\\TechnicalRadiation\\TechnicalRadiation.Models\\TechnicalRadiation.Models.csproj"
+            },
+            "c:\\Users\\Rakel\\Documents\\GitHub\\VEFT-H18\\Large Assignments\\L1\\TechnicalRadiation\\TechnicalRadiation.Repositories\\TechnicalRadiation.Repositories.csproj": {
+              "projectPath": "c:\\Users\\Rakel\\Documents\\GitHub\\VEFT-H18\\Large Assignments\\L1\\TechnicalRadiation\\TechnicalRadiation.Repositories\\TechnicalRadiation.Repositories.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
