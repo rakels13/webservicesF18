@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using AutoMapper;
 using TechnicalRadiation.Models.DetailDtos;
 using TechnicalRadiation.Models.Dtos;
 using TechnicalRadiation.Repositories.Data;
