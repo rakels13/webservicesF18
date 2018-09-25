@@ -1,0 +1,12 @@
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Large Assignments\L1\TechnicalRadiation\TechnicalRadiation.Repositories\bin\Debug\netstandard2.0\TechnicalRadiation.Repositories.deps.json
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Large Assignments\L1\TechnicalRadiation\TechnicalRadiation.Repositories\bin\Debug\netstandard2.0\TechnicalRadiation.Repositories.dll
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Large Assignments\L1\TechnicalRadiation\TechnicalRadiation.Repositories\bin\Debug\netstandard2.0\TechnicalRadiation.Repositories.pdb
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Large Assignments\L1\TechnicalRadiation\TechnicalRadiation.Repositories\bin\Debug\netstandard2.0\TechnicalRadiation.Models.dll
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Large Assignments\L1\TechnicalRadiation\TechnicalRadiation.Repositories\bin\Debug\netstandard2.0\TechnicalRadiation.Models.pdb
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Large Assignments\L1\TechnicalRadiation\TechnicalRadiation.Repositories\obj\Debug\netstandard2.0\TechnicalRadiation.Repositories.csprojAssemblyReference.cache
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Large Assignments\L1\TechnicalRadiation\TechnicalRadiation.Repositories\obj\Debug\netstandard2.0\TechnicalRadiation.Repositories.csproj.CoreCompileInputs.cache
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Large Assignments\L1\TechnicalRadiation\TechnicalRadiation.Repositories\obj\Debug\netstandard2.0\TechnicalRadiation.Repositories.AssemblyInfoInputs.cache
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Large Assignments\L1\TechnicalRadiation\TechnicalRadiation.Repositories\obj\Debug\netstandard2.0\TechnicalRadiation.Repositories.AssemblyInfo.cs
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Large Assignments\L1\TechnicalRadiation\TechnicalRadiation.Repositories\obj\Debug\netstandard2.0\TechnicalRadiation.Repositories.csproj.CopyComplete
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Large Assignments\L1\TechnicalRadiation\TechnicalRadiation.Repositories\obj\Debug\netstandard2.0\TechnicalRadiation.Repositories.dll
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Large Assignments\L1\TechnicalRadiation\TechnicalRadiation.Repositories\obj\Debug\netstandard2.0\TechnicalRadiation.Repositories.pdb

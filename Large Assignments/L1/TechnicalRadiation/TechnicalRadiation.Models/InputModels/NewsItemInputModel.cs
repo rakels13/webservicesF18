@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace TechnicalRadiation.Models.InputModels
 {
     public class NewsItemInputModel
@@ -6,7 +8,7 @@ namespace TechnicalRadiation.Models.InputModels
         [Required]
         public string Title { get; set; }
         [Required]
-        [URL] //must be a valid URL
+        [Url] //must be a valid URL
         public string ImgSource { get; set; }
         [Required]
         [MaxLength(50)]

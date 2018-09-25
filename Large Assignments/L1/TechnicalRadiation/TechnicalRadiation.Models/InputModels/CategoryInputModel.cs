@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace TechnicalRadiation.Models.InputModels
 {
     public class CategoryInputModel

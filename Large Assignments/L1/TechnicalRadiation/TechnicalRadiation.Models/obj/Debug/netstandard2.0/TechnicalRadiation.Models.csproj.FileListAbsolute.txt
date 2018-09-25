@@ -1,0 +1,9 @@
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Large Assignments\L1\TechnicalRadiation\TechnicalRadiation.Models\bin\Debug\netstandard2.0\TechnicalRadiation.Models.deps.json
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Large Assignments\L1\TechnicalRadiation\TechnicalRadiation.Models\bin\Debug\netstandard2.0\TechnicalRadiation.Models.dll
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Large Assignments\L1\TechnicalRadiation\TechnicalRadiation.Models\bin\Debug\netstandard2.0\TechnicalRadiation.Models.pdb
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Large Assignments\L1\TechnicalRadiation\TechnicalRadiation.Models\obj\Debug\netstandard2.0\TechnicalRadiation.Models.csprojAssemblyReference.cache
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Large Assignments\L1\TechnicalRadiation\TechnicalRadiation.Models\obj\Debug\netstandard2.0\TechnicalRadiation.Models.csproj.CoreCompileInputs.cache
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Large Assignments\L1\TechnicalRadiation\TechnicalRadiation.Models\obj\Debug\netstandard2.0\TechnicalRadiation.Models.AssemblyInfoInputs.cache
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Large Assignments\L1\TechnicalRadiation\TechnicalRadiation.Models\obj\Debug\netstandard2.0\TechnicalRadiation.Models.AssemblyInfo.cs
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Large Assignments\L1\TechnicalRadiation\TechnicalRadiation.Models\obj\Debug\netstandard2.0\TechnicalRadiation.Models.dll
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Large Assignments\L1\TechnicalRadiation\TechnicalRadiation.Models\obj\Debug\netstandard2.0\TechnicalRadiation.Models.pdb
