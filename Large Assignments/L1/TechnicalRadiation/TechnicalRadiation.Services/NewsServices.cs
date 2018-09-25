@@ -1,5 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Dynamic;
+using System.Linq;
+using TechnicalRadiation.Models;
 using TechnicalRadiation.Models.DetailDtos;
 using TechnicalRadiation.Models.Dtos;
 using TechnicalRadiation.Models.InputModels;
@@ -13,9 +16,50 @@ namespace TechnicalRadiation.Services
 
         public IEnumerable<NewsItemDto> GetAllNews(int pageSize, int pageNumber)
         {
-		    // hérna þyrfti samt paging að gerast....
-            //if(pageSize == );
+		    if(pageSize == null)
+            {
+                pageSize = 25;
+                pageNumber = 1;
+            }
             return _newsRepository.GetAllNews(pageSize, pageNumber);
+        }
+
+        public Envelope<NewsItemDto> GetNewsToEnvelope(int pageSize, int pageNumber)
+        {
+            /*Total count of models in DataContext */
+            decimal newsCount = _newsRepository.GetNewsItemCount();
+            /*Calculating maximum pages */
+            int maxPages = (int)(Math.Ceiling(newsCount/pageSize));
+            /*Calculating how many models are in the beginning of the list before the ones we want */
+            int pagesToSkip = (pageNumber-1)*pageSize;
+
+            /*Constructing the ModelDTO list of models */
+            IEnumerable<NewsItemDto> newsItems = _newsRepository.GetAllNews(pageSize, pageNumber);
+
+            /*Selecting the models to put in the envelope */
+            var items = newsItems.Skip(pagesToSkip).Take(pageSize).ToList();
+
+            /*Adding _links reference to each model */
+            /*foreach (var mod in items){
+                mod.Links.AddReference("self",string.Format("http://localhost:5000/api/tinysoldiers/{0}", mod.Id));
+            }
+            */
+            /*Constructing the envelope */
+            var envelope = new Envelope<NewsItemDto>() 
+            {
+                Items = items,
+                PageSize = pageSize,
+                PageNumber = pageNumber,
+                MaxPages = maxPages
+            };
+            return envelope;
+        }
+
+        public void AddReferenceLinks(IEnumerable<NewsItemDto> newsItem)
+        {
+            foreach (var m in newsItem){
+                m.Links.AddReference("self", $"api/{m.Id}")
+            }
         }
 
         public NewsItemDetailDto GetNewsById(int id)
@@ -89,7 +133,26 @@ namespace TechnicalRadiation.Services
         {
             //var entity = _newsRepository.GetNewsById(id);
             //if (entity == null) { throw new Exception($"NewsItem with id {id} was not found."); }
-            _newsRepository.DeleteNewsItem(id);
+            _newsRepository.DeleteCategory(id);
+        }
+
+         public int CreateAuthor(AuthorInputModel author)
+        {
+            return _newsRepository.CreateAuthor(author);
+        }
+
+        public void UpdateAuthorById(AuthorInputModel author, int id)
+        {
+            var entity = _newsRepository.GetAuthorById(id);
+            if (entity == null) { throw new Exception($"Author with id {id} was not found."); }
+            _newsRepository.UpdateAuthorById(author, id);
+        }
+
+        public void DeleteAuthorById(int id)
+        {
+            //var entity = _newsRepository.GetNewsById(id);
+            //if (entity == null) { throw new Exception($"NewsItem with id {id} was not found."); }
+            _newsRepository.DeleteAuthor(id);
         }
     }
 }

@@ -274,30 +274,28 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Rakel\\.nuget\\packages\\": {},
+    "C:\\Users\\Brynjar\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\Rakel\\Documents\\GitHub\\VEFT-H18\\Large Assignments\\L1\\TechnicalRadiation\\TechnicalRadiation.Models\\TechnicalRadiation.Models.csproj",
+      "projectUniqueName": "c:\\Users\\Brynjar\\Documents\\GitHub\\VEFT-H18\\Large Assignments\\L1\\TechnicalRadiation\\TechnicalRadiation.Models\\TechnicalRadiation.Models.csproj",
       "projectName": "TechnicalRadiation.Models",
-      "projectPath": "c:\\Users\\Rakel\\Documents\\GitHub\\VEFT-H18\\Large Assignments\\L1\\TechnicalRadiation\\TechnicalRadiation.Models\\TechnicalRadiation.Models.csproj",
-      "packagesPath": "C:\\Users\\Rakel\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\Rakel\\Documents\\GitHub\\VEFT-H18\\Large Assignments\\L1\\TechnicalRadiation\\TechnicalRadiation.Models\\obj\\",
+      "projectPath": "c:\\Users\\Brynjar\\Documents\\GitHub\\VEFT-H18\\Large Assignments\\L1\\TechnicalRadiation\\TechnicalRadiation.Models\\TechnicalRadiation.Models.csproj",
+      "packagesPath": "C:\\Users\\Brynjar\\.nuget\\packages\\",
+      "outputPath": "c:\\Users\\Brynjar\\Documents\\GitHub\\VEFT-H18\\Large Assignments\\L1\\TechnicalRadiation\\TechnicalRadiation.Models\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Rakel\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Brynjar\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

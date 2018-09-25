@@ -17,6 +17,11 @@ namespace TechnicalRadiation.Repositories
 		    return Mapper.Map<IEnumerable<NewsItemDto>>(DataProvider.NewsItems);
         }
 
+        public int GetNewsItemCount()
+        {
+            return DataProvider.NewsItems.Count();
+        }
+
         public NewsItemDetailDto GetNewsById(int id)
         {
             return Mapper.Map<NewsItemDetailDto>(DataProvider.NewsItems.FirstOrDefault(n => n.Id == id));
@@ -29,7 +34,7 @@ namespace TechnicalRadiation.Repositories
 
         public CategoryDetailDto GetCategoryById(int id)
         {
-            return Mapper.Map<CategoryDetailDto>(DataProvider.Categories.FirstOrDefault(n => n.Id == id));
+            return Mapper.Map<CategoryDetailDto>(DataProvider.Categories.FirstOrDefault(c => c.Id == id));
         }
 
         public IEnumerable<AuthorDto> GetAllAuthors()
@@ -39,7 +44,7 @@ namespace TechnicalRadiation.Repositories
 
         public AuthorDetailDto GetAuthorById(int id)
         {
-            return Mapper.Map<AuthorDetailDto>(DataProvider.Authors.FirstOrDefault(n => n.Id == id));
+            return Mapper.Map<AuthorDetailDto>(DataProvider.Authors.FirstOrDefault(a => a.Id == id));
         }
 
         public IEnumerable<NewsItemDto> GetNewsByAuthorId(int id)
@@ -59,7 +64,7 @@ namespace TechnicalRadiation.Repositories
 
         public void UpdateNewsById(NewsItemInputModel newsItem, int id)
         {
-            var updateNews = DataProvider.NewsItems.FirstOrDefault(r => r.Id == id);
+            var updateNews = DataProvider.NewsItems.FirstOrDefault(n => n.Id == id);
 
             if (updateNews == null) { return; /* Throw some exception */ }
 
@@ -74,7 +79,7 @@ namespace TechnicalRadiation.Repositories
         public void DeleteNewsItem(int id)
         {
             //DataProvider.NewsItems.Remove(Mapper.Map<NewsItem>(newsItem));
-            var element = DataProvider.NewsItems.FirstOrDefault(l => l.Id == id);
+            var element = DataProvider.NewsItems.FirstOrDefault(n => n.Id == id);
             //TODO vantar villumeðhöndlun!
             DataProvider.NewsItems.Remove(element);
         }
@@ -90,7 +95,7 @@ namespace TechnicalRadiation.Repositories
 
         public void UpdateCategoryById(CategoryInputModel category, int id)
         {
-            var updateCategory = DataProvider.Categories.FirstOrDefault(r => r.Id == id);
+            var updateCategory = DataProvider.Categories.FirstOrDefault(c => c.Id == id);
 
             if (updateCategory == null) { return; /* Throw some exception */ }
 
@@ -104,9 +109,38 @@ namespace TechnicalRadiation.Repositories
         public void DeleteCategory(int id)
         {
             //DataProvider.NewsItems.Remove(Mapper.Map<NewsItem>(newsItem));
-            var element = DataProvider.Categories.FirstOrDefault(l => l.Id == id);
+            var element = DataProvider.Categories.FirstOrDefault(c => c.Id == id);
             //TODO vantar villumeðhöndlun!
             DataProvider.Categories.Remove(element);
+        }
+
+        
+        public int CreateAuthor(AuthorInputModel author)
+        {
+            var nextId = DataProvider.Authors.Count() + 1;
+            var entity = Mapper.Map<Author>(author);
+            entity.Id = nextId;
+            DataProvider.Authors.Add(entity);
+            return nextId;
+        }
+
+        public void UpdateAuthorById(AuthorInputModel author, int id)
+        {
+            var updateAuthor = DataProvider.Authors.FirstOrDefault(a => a.Id == id);
+
+            if (updateAuthor == null) { return; /* Throw some exception */ }
+
+            updateAuthor.Name = author.Name;
+            updateAuthor.ProfileImgSource = author.ProfileImgSource;
+            updateAuthor.Bio = author.Bio;
+        }
+
+        public void DeleteAuthor(int id)
+        {
+            //DataProvider.NewsItems.Remove(Mapper.Map<NewsItem>(newsItem));
+            var element = DataProvider.Authors.FirstOrDefault(a => a.Id == id);
+            //TODO vantar villumeðhöndlun!
+            DataProvider.Authors.Remove(element);
         }
     }
 }

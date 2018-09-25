@@ -114,5 +114,33 @@ namespace TechnicalRadiation.WebApi.Controllers
             _newsService.DeleteCategoryById(id);
             return NoContent();
         }
+
+                [HttpPost]
+        [Route("")]
+        public IActionResult CreateAuthor([FromBody] AuthorInputModel author)
+        {
+            if (!ModelState.IsValid) { return StatusCode(412, author); }
+            var id = _newsService.CreateAuthor(author);
+            return CreatedAtRoute("", new { id }, null);
+        }
+
+        [HttpPut]
+        [Route("{id:int}")]
+        public IActionResult UpdateAuthorById(int id, [FromBody] AuthorInputModel author)
+        {
+            if (!ModelState.IsValid) { return StatusCode(412, author); }
+            
+            _newsService.UpdateAuthorById(author, id);
+
+            return NoContent();
+        }
+
+        [HttpDelete]
+        [Route("{id:int}")]
+        public IActionResult DeleteAuthorById(int id)
+        {
+            _newsService.DeleteAuthorById(id);
+            return NoContent();
+        }
     }
 }

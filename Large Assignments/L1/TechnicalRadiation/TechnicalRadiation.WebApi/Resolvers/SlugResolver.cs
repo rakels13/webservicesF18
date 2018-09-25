@@ -9,7 +9,9 @@ namespace TechnicalRadiation.WebApi.Resolvers
     {
         public string Resolve(Category source, CategoryDto destination, string destMember, ResolutionContext context)
         {
-           return ""; //return $"{source.} - {source.ModifiedBy}";
+            return source.Slug.ToLower().Replace(" ", "-");
+            //return ""; 
+            //return $"{source.} - {source.ModifiedBy}";
         }
     }
 
@@ -17,7 +19,7 @@ namespace TechnicalRadiation.WebApi.Resolvers
     {
         public string Resolve(Category source, CategoryDetailDto destination, string destMember, ResolutionContext context)
         {
-            throw new System.NotImplementedException();
+            return source.Slug.ToLower().Replace(" ", "-");
         }
     }
 }

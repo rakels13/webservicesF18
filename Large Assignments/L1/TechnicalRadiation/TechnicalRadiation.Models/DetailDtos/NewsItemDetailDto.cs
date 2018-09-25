@@ -7,7 +7,8 @@ namespace TechnicalRadiation.Models.DetailDtos
         public string ImgSource { get; set; }
         public string ShortDescription { get; set; }
         public string LongDescription { get; set; }
-        // þetta á örugglega að vera int?
         public int PublishDate { get; set; }
+        public int AuthorId { get; set; }
+        public int CategoryId { get; set; }
     }
 }

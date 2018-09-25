@@ -7,5 +7,7 @@ namespace TechnicalRadiation.Models.Dtos
         public string Title { get; set; }
         public string ImgSource { get; set; }
         public string ShortDescription { get; set; }
+        public int AuthorId { get; set; }
+        public int CategoryId { get; set; }
     }
 }
