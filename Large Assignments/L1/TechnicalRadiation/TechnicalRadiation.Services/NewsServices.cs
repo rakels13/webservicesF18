@@ -6,7 +6,9 @@ using TechnicalRadiation.Models;
 using TechnicalRadiation.Models.DetailDtos;
 using TechnicalRadiation.Models.Dtos;
 using TechnicalRadiation.Models.InputModels;
+using TechnicalRadiation.Models.Extensions;
 using TechnicalRadiation.Repositories;
+
 
 namespace TechnicalRadiation.Services
 {
@@ -14,18 +16,14 @@ namespace TechnicalRadiation.Services
     {
         private readonly NewsRepository _newsRepository = new NewsRepository();
 
-        public IEnumerable<NewsItemDto> GetAllNews(int pageSize, int pageNumber)
+
+        public Envelope<NewsItemDto> GetAllNews(int pageSize, int pageNumber)
         {
-		    if(pageSize == null)
+            if(pageSize == 0)
             {
                 pageSize = 25;
                 pageNumber = 1;
             }
-            return _newsRepository.GetAllNews(pageSize, pageNumber);
-        }
-
-        public Envelope<NewsItemDto> GetNewsToEnvelope(int pageSize, int pageNumber)
-        {
             /*Total count of models in DataContext */
             decimal newsCount = _newsRepository.GetNewsItemCount();
             /*Calculating maximum pages */
@@ -39,11 +37,7 @@ namespace TechnicalRadiation.Services
             /*Selecting the models to put in the envelope */
             var items = newsItems.Skip(pagesToSkip).Take(pageSize).ToList();
 
-            /*Adding _links reference to each model */
-            /*foreach (var mod in items){
-                mod.Links.AddReference("self",string.Format("http://localhost:5000/api/tinysoldiers/{0}", mod.Id));
-            }
-            */
+            AddReferenceLinks(items);
             /*Constructing the envelope */
             var envelope = new Envelope<NewsItemDto>() 
             {
@@ -58,7 +52,7 @@ namespace TechnicalRadiation.Services
         public void AddReferenceLinks(IEnumerable<NewsItemDto> newsItem)
         {
             foreach (var m in newsItem){
-                m.Links.AddReference("self", $"api/{m.Id}")
+                m.Links.AddReference("self", $"api/{m.Id}");
             }
         }
 

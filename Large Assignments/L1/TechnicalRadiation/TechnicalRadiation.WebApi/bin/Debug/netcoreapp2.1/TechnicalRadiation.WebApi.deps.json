@@ -225,6 +225,7 @@
       "System.ValueTuple/4.5.0": {},
       "TechnicalRadiation.Models/1.0.0": {
         "dependencies": {
+          "Newtonsoft.Json": "11.0.2",
           "System.ComponentModel.Annotations": "4.5.0"
         },
         "runtime": {

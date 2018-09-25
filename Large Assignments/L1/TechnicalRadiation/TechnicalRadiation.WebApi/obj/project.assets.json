@@ -4345,6 +4345,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Newtonsoft.Json": "11.0.2",
           "System.ComponentModel.Annotations": "4.5.0"
         },
         "compile": {
@@ -11615,38 +11616,40 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Brynjar\\.nuget\\packages\\": {},
+    "C:\\Users\\Rakel\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\Brynjar\\Documents\\GitHub\\VEFT-H18\\Large Assignments\\L1\\TechnicalRadiation\\TechnicalRadiation.WebApi\\TechnicalRadiation.WebApi.csproj",
+      "projectUniqueName": "C:\\Users\\Rakel\\Documents\\GitHub\\VEFT-H18\\Large Assignments\\L1\\TechnicalRadiation\\TechnicalRadiation.WebApi\\TechnicalRadiation.WebApi.csproj",
       "projectName": "TechnicalRadiation.WebApi",
-      "projectPath": "c:\\Users\\Brynjar\\Documents\\GitHub\\VEFT-H18\\Large Assignments\\L1\\TechnicalRadiation\\TechnicalRadiation.WebApi\\TechnicalRadiation.WebApi.csproj",
-      "packagesPath": "C:\\Users\\Brynjar\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\Brynjar\\Documents\\GitHub\\VEFT-H18\\Large Assignments\\L1\\TechnicalRadiation\\TechnicalRadiation.WebApi\\obj\\",
+      "projectPath": "C:\\Users\\Rakel\\Documents\\GitHub\\VEFT-H18\\Large Assignments\\L1\\TechnicalRadiation\\TechnicalRadiation.WebApi\\TechnicalRadiation.WebApi.csproj",
+      "packagesPath": "C:\\Users\\Rakel\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Rakel\\Documents\\GitHub\\VEFT-H18\\Large Assignments\\L1\\TechnicalRadiation\\TechnicalRadiation.WebApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Brynjar\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Rakel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "c:\\Users\\Brynjar\\Documents\\GitHub\\VEFT-H18\\Large Assignments\\L1\\TechnicalRadiation\\TechnicalRadiation.Models\\TechnicalRadiation.Models.csproj": {
-              "projectPath": "c:\\Users\\Brynjar\\Documents\\GitHub\\VEFT-H18\\Large Assignments\\L1\\TechnicalRadiation\\TechnicalRadiation.Models\\TechnicalRadiation.Models.csproj"
+            "C:\\Users\\Rakel\\Documents\\GitHub\\VEFT-H18\\Large Assignments\\L1\\TechnicalRadiation\\TechnicalRadiation.Models\\TechnicalRadiation.Models.csproj": {
+              "projectPath": "C:\\Users\\Rakel\\Documents\\GitHub\\VEFT-H18\\Large Assignments\\L1\\TechnicalRadiation\\TechnicalRadiation.Models\\TechnicalRadiation.Models.csproj"
             },
-            "c:\\Users\\Brynjar\\Documents\\GitHub\\VEFT-H18\\Large Assignments\\L1\\TechnicalRadiation\\TechnicalRadiation.Services\\TechnicalRadiation.Services.csproj": {
-              "projectPath": "c:\\Users\\Brynjar\\Documents\\GitHub\\VEFT-H18\\Large Assignments\\L1\\TechnicalRadiation\\TechnicalRadiation.Services\\TechnicalRadiation.Services.csproj"
+            "C:\\Users\\Rakel\\Documents\\GitHub\\VEFT-H18\\Large Assignments\\L1\\TechnicalRadiation\\TechnicalRadiation.Services\\TechnicalRadiation.Services.csproj": {
+              "projectPath": "C:\\Users\\Rakel\\Documents\\GitHub\\VEFT-H18\\Large Assignments\\L1\\TechnicalRadiation\\TechnicalRadiation.Services\\TechnicalRadiation.Services.csproj"
             }
           }
         }

@@ -1,6 +1,6 @@
 namespace TechnicalRadiation.Models.Dtos
 {
-    public class NewsItemDto
+    public class NewsItemDto : HyperMediaModel
     {
         //Id, Title, ImgSource, ShortDescription
         public int Id { get; set; }

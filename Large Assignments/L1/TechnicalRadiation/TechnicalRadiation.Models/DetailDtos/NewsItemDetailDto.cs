@@ -1,6 +1,6 @@
 namespace TechnicalRadiation.Models.DetailDtos
 {
-    public class NewsItemDetailDto
+    public class NewsItemDetailDto : HyperMediaModel
     {
          public int Id { get; set; }
         public string Title { get; set; }
