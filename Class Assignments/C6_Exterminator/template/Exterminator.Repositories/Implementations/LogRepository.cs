@@ -23,7 +23,6 @@ namespace Exterminator.Repositories.Implementations
             });
             _dbContext.SaveChanges();
         }
-
         public IEnumerable<LogDto> GetAllLogs() 
         {
             return _dbContext.Logs.Select(l => new LogDto
@@ -34,6 +33,5 @@ namespace Exterminator.Repositories.Implementations
                 Timestamp = l.Timestamp
             }).OrderByDescending(l => l.Timestamp);
         }
-        // TODO: Should contain a method which retrieves all logs (LogDto) ordered by timestamp (descending)
     }
 }

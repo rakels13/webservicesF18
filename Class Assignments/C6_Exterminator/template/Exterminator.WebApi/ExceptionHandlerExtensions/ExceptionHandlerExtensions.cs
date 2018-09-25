@@ -14,7 +14,6 @@ namespace Exterminator.WebApi.ExceptionHandlerExtensions
     {
         public static void UseGlobalExceptionHandler(this IApplicationBuilder app)
         {
-            // TODO: Implement
             app.UseExceptionHandler(error =>
             {
                 error.Run(async context =>
@@ -22,8 +21,6 @@ namespace Exterminator.WebApi.ExceptionHandlerExtensions
                     var exceptionHandlerFeature = context.Features.Get<IExceptionHandlerFeature>();
                     var exception = exceptionHandlerFeature.Error;
                     var statusCode = (int) HttpStatusCode.InternalServerError;
-
-                    
 
                     if (exception is ResourceNotFoundException)
                     {
