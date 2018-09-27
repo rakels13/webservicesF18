@@ -16,12 +16,14 @@ namespace TechnicalRadiation.Services
     {
         private readonly NewsRepository _newsRepository = new NewsRepository();
 
-
         public Envelope<NewsItemDto> GetAllNews(int pageSize, int pageNumber)
         {
             if(pageSize == 0)
             {
-                pageSize = 25;
+                pageSize = 25;   
+            }
+            if(pageNumber == 0)
+            {
                 pageNumber = 1;
             }
             /*Total count of models in DataContext */
@@ -52,7 +54,11 @@ namespace TechnicalRadiation.Services
         public void AddReferenceLinks(IEnumerable<NewsItemDto> newsItem)
         {
             foreach (var m in newsItem){
-                m.Links.AddReference("self", $"api/{m.Id}");
+                
+                var newLink = new ExpandoObject();
+                m.Links.AddReference("href", $"/api/{m.Id}");
+
+                m.Links.AddReference("self", $"{newLink}");
             }
         }
 
@@ -62,35 +68,7 @@ namespace TechnicalRadiation.Services
             if (news == null) { throw new Exception($"NewsItem with id {id} was not found."); }
             return news;
         }
-
-        public IEnumerable<CategoryDto> GetAllCategories()
-        {
-	        return _newsRepository.GetAllCategories();
-        }
-
-        public CategoryDetailDto GetCategoryById(int id)
-        {
-	        var category = _newsRepository.GetCategoryById(id);
-            if (category == null) { throw new Exception($"Category with id {id} was not found."); }
-            return category;
-        }
-
-        public IEnumerable<AuthorDto> GetAllAuthors()
-        {
-	        return _newsRepository.GetAllAuthors();
-        }
-
-        public AuthorDetailDto GetAuthorById(int id)
-        {
-	        var author = _newsRepository.GetAuthorById(id);
-            if (author == null) { throw new Exception($"Author with id {id} was not found."); }
-            return author;
-        }
-
-        public IEnumerable<NewsItemDto> GetNewsByAuthorId(int id)
-        {
-	        return _newsRepository.GetNewsByAuthorId(id);
-        }
+       
 
         public int CreateNewsItem(NewsItemInputModel newsItem)
         {
@@ -109,44 +87,6 @@ namespace TechnicalRadiation.Services
             //var entity = _newsRepository.GetNewsById(id);
             //if (entity == null) { throw new Exception($"NewsItem with id {id} was not found."); }
             _newsRepository.DeleteNewsItem(id);
-        }
-
-        public int CreateCategory(CategoryInputModel category)
-        {
-            return _newsRepository.CreateCategory(category);
-        }
-
-        public void UpdateCategoryById(CategoryInputModel category, int id)
-        {
-            var entity = _newsRepository.GetCategoryById(id);
-            if (entity == null) { throw new Exception($"Category with id {id} was not found."); }
-            _newsRepository.UpdateCategoryById(category, id);
-        }
-
-        public void DeleteCategoryById(int id)
-        {
-            //var entity = _newsRepository.GetNewsById(id);
-            //if (entity == null) { throw new Exception($"NewsItem with id {id} was not found."); }
-            _newsRepository.DeleteCategory(id);
-        }
-
-         public int CreateAuthor(AuthorInputModel author)
-        {
-            return _newsRepository.CreateAuthor(author);
-        }
-
-        public void UpdateAuthorById(AuthorInputModel author, int id)
-        {
-            var entity = _newsRepository.GetAuthorById(id);
-            if (entity == null) { throw new Exception($"Author with id {id} was not found."); }
-            _newsRepository.UpdateAuthorById(author, id);
-        }
-
-        public void DeleteAuthorById(int id)
-        {
-            //var entity = _newsRepository.GetNewsById(id);
-            //if (entity == null) { throw new Exception($"NewsItem with id {id} was not found."); }
-            _newsRepository.DeleteAuthor(id);
         }
     }
 }
