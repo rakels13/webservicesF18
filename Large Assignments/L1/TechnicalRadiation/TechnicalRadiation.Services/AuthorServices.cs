@@ -12,6 +12,7 @@ namespace TechnicalRadiation.Services
     public class AuthorServices
     {
         private readonly AuthorRepository _authorRepository = new AuthorRepository();
+        private readonly NewsServices _newsServices = new NewsServices();
         public IEnumerable<AuthorDto> GetAllAuthors()
         {
             IEnumerable<AuthorDto> authors = _authorRepository.GetAllAuthors();
@@ -74,7 +75,13 @@ namespace TechnicalRadiation.Services
 
         public IEnumerable<NewsItemDto> GetNewsByAuthorId(int id)
         {
-	        return _authorRepository.GetNewsByAuthorId(id);
+            IEnumerable<NewsItemDto> newsByAuthor = _authorRepository.GetNewsByAuthorId(id);
+            foreach (var n in newsByAuthor)
+            {
+                _newsServices.AddReferenceLinks(n);
+            }
+            return newsByAuthor;
+	        
         }
 
         public int CreateAuthor(AuthorInputModel author)

@@ -27,7 +27,7 @@ namespace TechnicalRadiation.WebApi.Controllers
         [Route("")]
         public IActionResult CreateNewsItem([FromBody] NewsItemInputModel newsItem)
         {
-            if (!ModelState.IsValid) { return StatusCode(412, newsItem); }
+            //if (!ModelState.IsValid) { return StatusCode(412, newsItem); }
             var id = _newsService.CreateNewsItem(newsItem);
             return CreatedAtRoute("GetNewsById", new { id }, null);
         }
