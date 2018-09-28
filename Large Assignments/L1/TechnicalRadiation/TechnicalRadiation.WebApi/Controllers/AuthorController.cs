@@ -4,34 +4,34 @@ using TechnicalRadiation.Services;
 
 namespace TechnicalRadiation.WebApi.Controllers
 {
-    [Route("/api")]
+    [Route("/api/authors")]
     public class AuthorController : Controller
     {
         private readonly AuthorServices _authorService = new AuthorServices();
 
         [HttpGet]
-        [Route("/authors")]
+        [Route("")]
         public IActionResult GetAllAuthors()
         {
 	        return Ok(_authorService.GetAllAuthors());
         }
 
         [HttpGet]
-        [Route("/authors/{id:int}")]
+        [Route("{id:int}")]
         public IActionResult GetAuthorById(int id)
         {
 	        return Ok(_authorService.GetAuthorById(id));
         }
 
         [HttpGet]
-        [Route("/authors/{id:int}")]
+        [Route("{id:int}/newsItems")]
         public IActionResult GetNewsByAuthorId(int id)
         {
 	        return Ok(_authorService.GetNewsByAuthorId(id));
         }
 
         [HttpPost]
-        [Route("/authors")]
+        [Route("")]
         public IActionResult CreateAuthor([FromBody] AuthorInputModel author)
         {
             if (!ModelState.IsValid) { return StatusCode(412, author); }
@@ -40,7 +40,7 @@ namespace TechnicalRadiation.WebApi.Controllers
         }
 
         [HttpPut]
-        [Route("/authors/{id:int}")]
+        [Route("{id:int}")]
         public IActionResult UpdateAuthorById(int id, [FromBody] AuthorInputModel author)
         {
             if (!ModelState.IsValid) { return StatusCode(412, author); }
@@ -51,7 +51,7 @@ namespace TechnicalRadiation.WebApi.Controllers
         }
 
         [HttpDelete]
-        [Route("/authors/{id:int}")]
+        [Route("{id:int}")]
         public IActionResult DeleteAuthorById(int id)
         {
             _authorService.DeleteAuthorById(id);
@@ -59,7 +59,7 @@ namespace TechnicalRadiation.WebApi.Controllers
         }
 
         [HttpPatch]
-        [Route("/author/{authorId:int}/newsitem/{newsItemId:int}")]
+        [Route("{authorId:int}/newsitem/{newsItemId:int}")]
         public IActionResult LinkNewsToAuthor(int authorId, int newsItemId)
         {
             _authorService.LinkNewsToAuthor(authorId, newsItemId);

@@ -4,27 +4,27 @@ using TechnicalRadiation.Services;
 
 namespace TechnicalRadiation.WebApi.Controllers
 {
-    [Route("/api")]
+    [Route("/api/categories")]
     public class CategoryController : Controller
     {
         private readonly CategoryServices _categoryService = new CategoryServices();
 
         [HttpGet]
-        [Route("/categories")]
+        [Route("")]
         public IActionResult GetAllCategories()
         {
 	        return Ok(_categoryService.GetAllCategories());
         }
 
         [HttpGet]
-        [Route("/categories/{id:int}")]
+        [Route("{id:int}")]
         public IActionResult GetCategoryById(int id)
         {
 	        return Ok(_categoryService.GetCategoryById(id));
         }
 
-                [HttpPost]
-        [Route("/categories")]
+        [HttpPost]
+        [Route("")]
         public IActionResult CreateCategory([FromBody] CategoryInputModel category)
         {
             if (!ModelState.IsValid) { return StatusCode(412, category); }
@@ -33,7 +33,7 @@ namespace TechnicalRadiation.WebApi.Controllers
         }
 
         [HttpPut]
-        [Route("{id:int}", Name = "/categories")]
+        [Route("{id:int}")]
         public IActionResult UpdateCategoryById(int id, [FromBody] CategoryInputModel category)
         {
             if (!ModelState.IsValid) { return StatusCode(412, category); }
@@ -44,7 +44,7 @@ namespace TechnicalRadiation.WebApi.Controllers
         }
 
         [HttpDelete]
-        [Route("{id:int}", Name = "/categories")]
+        [Route("{id:int}")]
         public IActionResult DeleteCategoryById(int id)
         {
             _categoryService.DeleteCategoryById(id);
@@ -52,7 +52,7 @@ namespace TechnicalRadiation.WebApi.Controllers
         }
 
         [HttpPatch]
-        [Route("/categories/{categoryId:int}/newsitem/{newsItemId:int}")]
+        [Route("{categoryId:int}/newsitem/{newsItemId:int}")]
         public IActionResult LinkNewsToCategory(int categoryId, int newsItemId)
         {
             _categoryService.LinkNewsToCategory(categoryId, newsItemId);

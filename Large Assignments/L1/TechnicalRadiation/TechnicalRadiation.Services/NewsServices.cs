@@ -39,7 +39,10 @@ namespace TechnicalRadiation.Services
             /*Selecting the models to put in the envelope */
             var items = newsItems.Skip(pagesToSkip).Take(pageSize).ToList();
 
-            AddReferenceLinks(items);
+            foreach (var i in items){
+                AddReferenceLinks(i);
+            }
+            
             /*Constructing the envelope */
             var envelope = new Envelope<NewsItemDto>() 
             {
@@ -51,24 +54,46 @@ namespace TechnicalRadiation.Services
             return envelope;
         }
 
-        public void AddReferenceLinks(IEnumerable<NewsItemDto> newsItem)
+        public void AddReferenceLinks(NewsItemDto newsItem)
         {
-            foreach (var m in newsItem){
-                
-                var newLink = new ExpandoObject();
-                m.Links.AddReference("href", $"/api/{m.Id}");
-
-                m.Links.AddReference("self", $"{newLink}");
-            }
+            //Constructing an object to hold the reference to self
+            ExpandoObject newLink = new ExpandoObject();
+            //Setting references for self, edit and href
+            newLink.AddReference("href", $"api/{newsItem.Id}");
+            newsItem.Links.AddReference("self", newLink);
+            newsItem.Links.AddReference("edit", newLink);
+            newsItem.Links.AddReference("delete", newLink);
+            //Constructing an object to hold the reference to the author of the newsItem
+            ExpandoObject authorLink = new ExpandoObject();
+            authorLink.AddReference("href", $"api/categories/{newsItem.AuthorId}");
+            newsItem.Links.AddReference("author", authorLink); 
+            //Constructing an object to hold the reference to the category of the newsItem
+            ExpandoObject categoryLink = new ExpandoObject();
+            categoryLink.AddReference("href", $"api/categories/{newsItem.CategoryId}");
+            newsItem.Links.AddReference("category", categoryLink);   
         }
 
         public NewsItemDetailDto GetNewsById(int id)
         {
 		    var news = _newsRepository.GetNewsById(id);
             if (news == null) { throw new Exception($"NewsItem with id {id} was not found."); }
+            //Constructing an object to hold the reference to self
+            ExpandoObject newLink = new ExpandoObject();
+            //Setting references for self, edit and href
+            newLink.AddReference("href", $"api/{news.Id}");
+            news.Links.AddReference("self", newLink);
+            news.Links.AddReference("edit", newLink);
+            news.Links.AddReference("delete", newLink);
+            //Constructing an object to hold the reference to the author of the newsItem
+            ExpandoObject authorLink = new ExpandoObject();
+            authorLink.AddReference("href", $"api/authors/{news.AuthorId}");
+            news.Links.AddReference("author", authorLink); 
+            //Constructing an object to hold the reference to the category of the newsItem
+            ExpandoObject categoryLink = new ExpandoObject();
+            categoryLink.AddReference("href", $"api/categories/{news.CategoryId}");
+            news.Links.AddReference("category", categoryLink);
             return news;
         }
-       
 
         public int CreateNewsItem(NewsItemInputModel newsItem)
         {

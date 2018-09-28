@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using TechnicalRadiation.Models.DetailDtos;
 using TechnicalRadiation.Models.Dtos;
+using TechnicalRadiation.Models.Extensions;
 using TechnicalRadiation.Models.InputModels;
 using TechnicalRadiation.Repositories;
 
@@ -12,13 +14,61 @@ namespace TechnicalRadiation.Services
         private readonly AuthorRepository _authorRepository = new AuthorRepository();
         public IEnumerable<AuthorDto> GetAllAuthors()
         {
-	        return _authorRepository.GetAllAuthors();
+            IEnumerable<AuthorDto> authors = _authorRepository.GetAllAuthors();
+            foreach (var a in authors)
+            {
+                AddReferenceLinks(a);
+            }
+            return authors;
         }
 
+    	public void AddReferenceLinks(AuthorDto author)
+        {
+            ExpandoObject newLink = new ExpandoObject();
+            newLink.AddReference("href", $"api/authors/{author.Id}");
+            author.Links.AddReference("self", newLink);
+            author.Links.AddReference("edit", newLink);
+            author.Links.AddReference("delete", newLink);
+        
+            ExpandoObject newsLink = new ExpandoObject();
+            newsLink.AddReference("href", $"api/authors/{author.Id}/newsItems");
+            author.Links.AddReference("newsItems", newsLink);
+
+            IEnumerable<NewsItemDto> newsByAuthor = GetNewsByAuthorId(author.Id);
+            List<ExpandoObject> newsDetailed = new List<ExpandoObject>();
+            foreach(var n in newsByAuthor)
+            {
+                ExpandoObject newNewsLink = new ExpandoObject();
+                newNewsLink.AddReference("href", $"api/{n.Id}");
+                newsDetailed.Add(newNewsLink);
+            }
+            author.Links.AddReference("newsItemsDetailed", newsDetailed);
+            
+        }
         public AuthorDetailDto GetAuthorById(int id)
         {
 	        var author = _authorRepository.GetAuthorById(id);
             if (author == null) { throw new Exception($"Author with id {id} was not found."); }
+            ExpandoObject newLink = new ExpandoObject();
+            newLink.AddReference("href", $"api/authors/{author.Id}");
+            author.Links.AddReference("self", newLink);
+            author.Links.AddReference("edit", newLink);
+            author.Links.AddReference("delete", newLink);
+        
+            ExpandoObject newsLink = new ExpandoObject();
+            newsLink.AddReference("href", $"api/authors/{author.Id}/newsItems");
+            author.Links.AddReference("newsItems", newsLink);
+
+            IEnumerable<NewsItemDto> newsByAuthor = GetNewsByAuthorId(author.Id);
+
+            List<ExpandoObject> newsDetailed = new List<ExpandoObject>();
+            foreach(var n in newsByAuthor)
+            {
+                ExpandoObject newNewsLink = new ExpandoObject();
+                newNewsLink.AddReference("href", $"api/{n.Id}");
+                newsDetailed.Add(newNewsLink);
+            }
+            author.Links.AddReference("newsItemsDetailed", newsDetailed);
             return author;
         }
 

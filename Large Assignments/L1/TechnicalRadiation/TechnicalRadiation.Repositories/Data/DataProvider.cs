@@ -108,7 +108,7 @@ namespace TechnicalRadiation.Repositories.Data
             },
             new Category
             {
-                Id = 1,
+                Id = 2,
                 Name = "Cyber Security",
                 Slug = "cyber-security",
                 ParentCategoryId = 0,

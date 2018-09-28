@@ -23,7 +23,7 @@ namespace TechnicalRadiation.Repositories
 
         public IEnumerable<NewsItemDto> GetNewsByAuthorId(int id)
         {
-		    return Mapper.Map<IEnumerable<NewsItemDto>>(DataProvider.NewsItems.Select(n => n.AuthorId == id));
+		    return Mapper.Map<IEnumerable<NewsItemDto>>(DataProvider.NewsItems.Where(n => n.AuthorId == id));
         }
 
 

@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using TechnicalRadiation.Models.DetailDtos;
 using TechnicalRadiation.Models.Dtos;
+using TechnicalRadiation.Models.Extensions;
 using TechnicalRadiation.Models.InputModels;
 using TechnicalRadiation.Repositories;
 
@@ -12,14 +14,34 @@ namespace TechnicalRadiation.Services
         private readonly CategoryRepository _categoryRepository = new CategoryRepository();
          public IEnumerable<CategoryDto> GetAllCategories()
         {
-	        return _categoryRepository.GetAllCategories();
+            IEnumerable<CategoryDto> categories = _categoryRepository.GetAllCategories();
+            foreach (var c in categories)
+            {
+                AddReferenceLinks(c);
+            }
+            return categories;
         }
 
         public CategoryDetailDto GetCategoryById(int id)
         {
 	        var category = _categoryRepository.GetCategoryById(id);
             if (category == null) { throw new Exception($"Category with id {id} was not found."); }
+            ExpandoObject newLink = new ExpandoObject();
+            newLink.AddReference("href", $"api/categories/{category.Id}");
+            category.Links.AddReference("self", newLink);
+            category.Links.AddReference("edit", newLink);
+            category.Links.AddReference("delete", newLink);
             return category;
+        }
+
+        public void AddReferenceLinks(CategoryDto category)
+        {
+            ExpandoObject newLink = new ExpandoObject();
+            newLink.AddReference("href", $"api/categories/{category.Id}");
+            category.Links.AddReference("self", newLink);
+            category.Links.AddReference("edit", newLink);
+            category.Links.AddReference("delete", newLink);
+            
         }
 
         public int CreateCategory(CategoryInputModel category)
