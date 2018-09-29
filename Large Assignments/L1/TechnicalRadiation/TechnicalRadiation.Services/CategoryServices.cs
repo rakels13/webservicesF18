@@ -25,7 +25,7 @@ namespace TechnicalRadiation.Services
         public CategoryDetailDto GetCategoryById(int id)
         {
 	        var category = _categoryRepository.GetCategoryById(id);
-            if (category == null) { throw new Exception($"Category with id {id} was not found."); }
+            if (category == null) { return category; }
             ExpandoObject newLink = new ExpandoObject();
             newLink.AddReference("href", $"api/categories/{category.Id}");
             category.Links.AddReference("self", newLink);

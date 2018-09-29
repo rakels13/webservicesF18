@@ -13,14 +13,24 @@ namespace TechnicalRadiation.WebApi.Controllers
         [Route("")]
         public IActionResult GetAllAuthors()
         {
-	        return Ok(_authorService.GetAllAuthors());
+            var allAuthors = _authorService.GetAllAuthors();
+            if(allAuthors == null)
+            {
+                return NotFound();
+            }
+	        return Ok(allAuthors);
         }
 
         [HttpGet]
         [Route("{id:int}", Name = "GetAuthorById")]
         public IActionResult GetAuthorById(int id)
         {
-	        return Ok(_authorService.GetAuthorById(id));
+            var author = _authorService.GetAuthorById(id);
+            if(author == null)
+            {
+                return NotFound();
+            }
+	        return Ok(author);
         }
 
         [HttpGet]

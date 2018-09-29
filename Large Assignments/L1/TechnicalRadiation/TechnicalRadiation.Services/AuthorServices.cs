@@ -49,7 +49,7 @@ namespace TechnicalRadiation.Services
         public AuthorDetailDto GetAuthorById(int id)
         {
 	        var author = _authorRepository.GetAuthorById(id);
-            if (author == null) { throw new Exception($"Author with id {id} was not found."); }
+            if (author == null) { return author; }
             ExpandoObject newLink = new ExpandoObject();
             newLink.AddReference("href", $"api/authors/{author.Id}");
             author.Links.AddReference("self", newLink);

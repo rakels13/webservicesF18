@@ -13,14 +13,24 @@ namespace TechnicalRadiation.WebApi.Controllers
         [Route("")]
         public IActionResult GetAllCategories()
         {
-	        return Ok(_categoryService.GetAllCategories());
+            var allCategories = _categoryService.GetAllCategories();
+            if(allCategories == null)
+            {
+                return NotFound();
+            }
+	        return Ok(allCategories);
         }
 
         [HttpGet]
         [Route("{id:int}", Name = "GetCategoryById")]
         public IActionResult GetCategoryById(int id)
         {
-	        return Ok(_categoryService.GetCategoryById(id));
+            var category = _categoryService.GetCategoryById(id);
+            if(category == null) 
+            {
+                return NotFound();
+            }
+	        return Ok(category);
         }
 
         [HttpPost]
@@ -51,7 +61,7 @@ namespace TechnicalRadiation.WebApi.Controllers
             return NoContent();
         }
 
-        [HttpPut]
+        [HttpPatch]
         [Route("{categoryId:int}/newsItems/{newsItemId:int}")]
         public IActionResult LinkNewsToCategory(int categoryId, int newsItemId)
         {

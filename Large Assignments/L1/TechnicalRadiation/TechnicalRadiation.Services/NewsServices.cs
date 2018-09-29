@@ -76,7 +76,7 @@ namespace TechnicalRadiation.Services
         public NewsItemDetailDto GetNewsById(int id)
         {
 		    var news = _newsRepository.GetNewsById(id);
-            if (news == null) { throw new Exception($"NewsItem with id {id} was not found."); }
+            if (news == null) { return news; }
             //Constructing an object to hold the reference to self
             ExpandoObject newLink = new ExpandoObject();
             //Setting references for self, edit and href

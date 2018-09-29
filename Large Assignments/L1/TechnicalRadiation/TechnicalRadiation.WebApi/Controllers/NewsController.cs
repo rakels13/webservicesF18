@@ -13,14 +13,24 @@ namespace TechnicalRadiation.WebApi.Controllers
         [Route("")]
         public IActionResult GetAllNews([FromQuery] int pageSize, [FromQuery] int pageNumber)
         {
-            return Ok(_newsService.GetAllNews(pageSize, pageNumber));
+            var allNews = _newsService.GetAllNews(pageSize,pageNumber);
+            if(allNews == null)
+            {
+                return NotFound();
+            }
+	        return Ok(allNews);
         }
 
         [HttpGet]
         [Route("{id:int}", Name = "GetNewsById")]
         public IActionResult GetNewsById(int id)
         {
-	        return Ok(_newsService.GetNewsById(id));
+            var news = _newsService.GetNewsById(id);
+            if(news == null)
+            {
+                return NotFound();
+            }
+	        return Ok(news);
         }
 
         [HttpPost]
