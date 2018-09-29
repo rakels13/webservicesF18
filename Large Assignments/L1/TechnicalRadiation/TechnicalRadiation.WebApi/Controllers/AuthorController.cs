@@ -17,7 +17,7 @@ namespace TechnicalRadiation.WebApi.Controllers
         }
 
         [HttpGet]
-        [Route("{id:int}")]
+        [Route("{id:int}", Name = "GetAuthorById")]
         public IActionResult GetAuthorById(int id)
         {
 	        return Ok(_authorService.GetAuthorById(id));
@@ -36,7 +36,7 @@ namespace TechnicalRadiation.WebApi.Controllers
         {
             if (!ModelState.IsValid) { return StatusCode(412, author); }
             var id = _authorService.CreateAuthor(author);
-            return CreatedAtRoute("", new { id }, null);
+            return CreatedAtRoute("GetAuthorById", new { id }, null);
         }
 
         [HttpPut]

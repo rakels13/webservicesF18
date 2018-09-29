@@ -17,7 +17,7 @@ namespace TechnicalRadiation.WebApi.Controllers
         }
 
         [HttpGet]
-        [Route("{id:int}")]
+        [Route("{id:int}", Name = "GetNewsById")]
         public IActionResult GetNewsById(int id)
         {
 	        return Ok(_newsService.GetNewsById(id));
@@ -27,9 +27,9 @@ namespace TechnicalRadiation.WebApi.Controllers
         [Route("")]
         public IActionResult CreateNewsItem([FromBody] NewsItemInputModel newsItem)
         {
-            //if (!ModelState.IsValid) { return StatusCode(412, newsItem); }
+            if (!ModelState.IsValid) { return StatusCode(412, newsItem); }
             var id = _newsService.CreateNewsItem(newsItem);
-            return CreatedAtRoute("GetNewsById", new { id }, null);
+            return CreatedAtRoute("GetNewsById",new { id }, null);
         }
 
         [HttpPut]

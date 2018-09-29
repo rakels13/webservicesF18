@@ -17,7 +17,7 @@ namespace TechnicalRadiation.WebApi.Controllers
         }
 
         [HttpGet]
-        [Route("{id:int}")]
+        [Route("{id:int}", Name = "GetCategoryById")]
         public IActionResult GetCategoryById(int id)
         {
 	        return Ok(_categoryService.GetCategoryById(id));
@@ -29,7 +29,7 @@ namespace TechnicalRadiation.WebApi.Controllers
         {
             if (!ModelState.IsValid) { return StatusCode(412, category); }
             var id = _categoryService.CreateCategory(category);
-            return CreatedAtRoute("", new { id }, null);
+            return CreatedAtRoute("GetCategoryById", new { id }, null);
         }
 
         [HttpPut]
@@ -51,8 +51,8 @@ namespace TechnicalRadiation.WebApi.Controllers
             return NoContent();
         }
 
-        [HttpPatch]
-        [Route("{categoryId:int}/newsitem/{newsItemId:int}")]
+        [HttpPut]
+        [Route("{categoryId:int}/newsItems/{newsItemId:int}")]
         public IActionResult LinkNewsToCategory(int categoryId, int newsItemId)
         {
             _categoryService.LinkNewsToCategory(categoryId, newsItemId);

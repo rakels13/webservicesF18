@@ -1,5 +1,4 @@
 using System.ComponentModel.DataAnnotations;
-
 namespace TechnicalRadiation.Models.InputModels
 {
     public class NewsItemInputModel
@@ -13,13 +12,11 @@ namespace TechnicalRadiation.Models.InputModels
         [Required]
         [MaxLength(50)]
         public string ShortDescription { get; set; }
-        [Required]
         [MinLength(50)]
         [MaxLength(255)]
         public string LongDescription { get; set; }
-
         [Required]
-        public int PublishDate { get; set; }
+        public string PublishDate { get; set; }
 
 
     }
