@@ -38,9 +38,9 @@ router.get('/pinatas', (req, res) => {
 
 router.get('/pinatas/:id', (req, res) => {
     const { id } = req.params;
-    const pinata = pinataService.getPinatasById(id);
+    const pinata = pinataService.getPinataById(id);
     if (pinata === -1) { return res.status(404).send(); }
-    return res.json(pinatas);
+    return res.json(pinata);
 });
 
 router.post('/pinatas', (req, res) => {
