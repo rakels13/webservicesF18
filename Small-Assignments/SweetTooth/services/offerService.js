@@ -7,29 +7,22 @@ const offerService = () => {
       function returnOffer(id, name, candies) {
           this.id = id;
           this.name = name;
+          //New array to hold candies in offer
           const newCandies = [];
           candies.forEach(function(element) {
             newCandies.push(candyService.getCandyById(element));
           });
           this.candies = newCandies;
       };
-
+      // Constructing a new array to return all the offers
       const  returnOffers = [];
 
       offers.forEach(function(element) {
+        // Populating the array with the offers from data
         returnOffers.push(new returnOffer(element.id, element.name, element.candies));
-        console.log(element.candies);
+        //console.log(element.candies);
       });
       return returnOffers;
-
-      /*const { id, name, candies} = offer;
-      offers.forEach((offer, ind, offerArray) => {
-        const currentOffer = offerArray[index];
-        currentOffer.forEach((element, ind, myArr) => {
-          console.log(myArr[ind]);
-        });
-
-      });*/
     };
 
     return {

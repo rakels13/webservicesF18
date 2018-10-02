@@ -8,11 +8,12 @@ const candyService = require('./services/candyService');
 const offerService = require('./services/offerService');
 const pinataService = require('./services/pinataService');
 
-//candies
+//get all candies
 router.get('/candies', (req, res) => {
     return res.json(candyService.getAllCandies());
 });
 
+// get candy by Id
 router.get('/candies/:id', (req, res) => {
     const { id } = req.params;
     const candy = candyService.getCandyById(id);
@@ -20,22 +21,24 @@ router.get('/candies/:id', (req, res) => {
     return res.json(candy);
 });
 
+// create new Candy
 router.post('/candies', (req, res) => {
     const { body } = req;
-    candyService.createCandy(body);
-    return res.status(201).send();
+    var newCandy = candyService.createCandy(body);
+    return res.status(201).send(newCandy);
 });
 
-//offers
+//get all offers
 router.get('/offers', (req, res) => {
     return res.json(offerService.getAllOffers());
 });
 
-//pinatas
+//get all pinatas
 router.get('/pinatas', (req, res) => {
     return res.json(pinataService.getAllPinatas());
 });
 
+// get pinata by Id
 router.get('/pinatas/:id', (req, res) => {
     const { id } = req.params;
     const pinata = pinataService.getPinataById(id);
@@ -43,21 +46,21 @@ router.get('/pinatas/:id', (req, res) => {
     return res.json(pinata);
 });
 
+// create a new pinata
 router.post('/pinatas', (req, res) => {
     const { body } = req;
-    pinataService.createPinata(body);
-    return res.status(201).send();
+    var pinata = pinataService.createPinata(body);
+    return res.status(201).send(pinata);
 });
 
-router.put('/pinatas/:id', (req, res) => {
-    const { body } = req;
+// hit the pinata
+router.put('/pinatas/:id/hit', (req, res) => {
     const { id } = req.params;
-    const result = pinataService.changePinata(id, body);
-    if (result === -1) { return res.status(404).send(); }
-    return res.status(204).send();
+    const result = pinataService.hitPinata(id);
+    if (result === "hit") { return res.status(204).send(); }
+    else if (result === "lock") { return res.status(423).send(); }
+    return res.status(200).send(result);
 });
-
-
 
 app.use(bodyParser.json());
 app.use('/api', router);
