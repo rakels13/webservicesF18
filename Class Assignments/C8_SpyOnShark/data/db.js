@@ -3,7 +3,7 @@ const sharkSchema = require('../schemas/sharkSchema');
 const attackSchema = require('../schemas/attackSchema');
 const areaSchema = require('../schemas/areaSchema');
 
-const connection = mongoose.createConnection('<insert-your-connection-string-here>', {
+const connection = mongoose.createConnection('mongodb://veftc8:vefth18@ds125713.mlab.com:25713/c8-spy-on-shark', {
     useNewUrlParser: true
 });
 
