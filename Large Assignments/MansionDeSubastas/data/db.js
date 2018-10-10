@@ -4,7 +4,6 @@ const artistSchema = require('../schemas/artist');
 const auctionSchema = require('../schemas/auction');
 const auctionBidSchema = require('../schemas/auctionBid');
 const customerSchema = require('../schemas/customer');
-const orderSchema = require('../schemas/order');
 
 const connection = mongoose.createConnection('mongodb://veft18:mansion2@ds125181.mlab.com:25181/l2_mansion', { useNewUrlParser: true });
 
@@ -14,5 +13,5 @@ module.exports = {
     Auction: connection.model('Auction', auctionSchema),
     AuctionBid: connection.model('AuctionBid', auctionBidSchema),
     Customer: connection.model('Customer', customerSchema),
-    Order: connection.model('Order', orderSchema)
+    connection
 };
