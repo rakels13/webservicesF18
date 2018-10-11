@@ -75,6 +75,7 @@ class AuctionService extends EventEmitter {
 		// Your implementation goes here
     // Should emit a PLACE_NEW_BID event when the data is available
 		Auction.findById(auctionId, (err, auction) => {
+			console.log('placing bid')
 			if (err) { throw new Error(err); }
 			else if (price < auction.minimumPrice) {
 				this.emit(this.events.PRICE_LOWER_THAN_MINIMUM_PRICE, 'Bid is lower than minimum price');
