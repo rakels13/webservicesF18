@@ -82,11 +82,12 @@ class AuctionService extends EventEmitter {
 				return;
 			}
 			//finna hæsta boðið...
-			AuctionBid.find().sort({_id:-1}).limit(1).pretty( (err, higestbid) => {
-				console.log(highestbid);
+			AuctionBid.aggregate([{ $group: {_id: auctionId, maxPrice: { $max: "$price"}}}] , (err, high) => {
+				console.log(high);
+				console.log(high.price);
 				if (err) { throw new Error(err); }
 
-				else if (price < highestbid) {
+				else if (price < high.price) {
 						this.emit(this.events.PRICE_LOWER_THAN_MINIMUM_PRICE, 'Bid is lower than current highest bid');
 				}
 			});
