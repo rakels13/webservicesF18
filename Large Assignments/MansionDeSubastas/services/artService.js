@@ -1,6 +1,5 @@
 const EventEmitter = require('events');
 const Art = require('../data/db').Art;
-const connection = require('../data/db').connection;
 
 class ArtService extends EventEmitter {
     constructor() {
@@ -32,6 +31,17 @@ class ArtService extends EventEmitter {
     createArt(art) {
         // Your implementation goes here
         // Should emit a CREATE_ART event when the data is available
+        Art.create({
+          title: art.title,
+          artistId: art.artistId,
+          date: art.date,
+          images: art.images,
+          description: art.description,
+          isAuctionItem: art.isAuctionItem
+        }, err => {
+          if (err) { throw new Error(err); }
+          this.emit(this.events.CREATE_ART, art);
+        });
     };
 };
 

@@ -28,9 +28,18 @@ class ArtistService extends EventEmitter {
         });
     };
 
-    createArtist() {
+    createArtist(artist) {
         // Your implementation goes here
         // Should emit a CREATE_ARTIST event when the data is available
+        Artist.create({
+          name: artist.name,
+          nickname: artist.nickname,
+          address: artist.address,
+          memberSince: artist.memberSince
+        }, err => {
+          if (err) { throw new Error(err); }
+          this.emit(this.events.CREATE_ARTIST, artist);
+        });
     };
 };
 
