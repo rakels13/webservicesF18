@@ -15,57 +15,87 @@ class AuctionService extends EventEmitter {
 			PLACE_NEW_BID: 'PLACE_NEW_BID',
 			ITEM_NOT_AUCTIONITEM: 'ITEM_NOT_AUCTIONITEM',
 			PRICE_LOWER_THAN_MINIMUM_PRICE: 'PRICE_LOWER_THAN_MINIMUM_PRICE',
-			AUCTION_IS_PAST_END_DATE: 'AUCTION_IS_PAST_END_DATE'
+			AUCTION_IS_PAST_END_DATE: 'AUCTION_IS_PAST_END_DATE',
+			AUCTION_HAS_NOT_ENDED: 'AUCTION_HAS_NOT_ENDED',
+			NO_BIDS: 'NO_BIDS',
+			NOT_FOUND: 'NOT_FOUND'
 		};
 	}
 
 	getAllAuctions() {
-		// Your implementation goes here
-        // Should emit a GET_ALL_AUCTIONS event when the data is available
-				Auction.find({}, (err, auctions) => {
-					if (err) { throw new Error(err); }
-					this.emit(this.events.GET_ALL_AUCTIONS, auctions);
-				});
+		// Finding all auctions and emitting the proper event when the data is available
+		Auction.find({}, (err, auctions) => {
+			if (err) { throw new Error(err); }
+			if (auctions === null) {
+				this.emit(this.events.NOT_FOUND, '');
+				return;
+			}
+			this.emit(this.events.GET_ALL_AUCTIONS, auctions);
+		});
 	};
 
 	getAuctionById(id) {
-		// Your implementation goes here
-    // Should emit a GET_AUCTION_BY_ID event when the data is available
+		// Finding auction by given id and emitting the proper event when it is found
 		Auction.findById(id, (err, auction) => {
 			if (err) { throw new Error(err); }
+			if (customers === null) {
+				this.emit(this.events.NOT_FOUND, '');
+				return;
+			}
 			this.emit(this.events.GET_AUCTION_BY_ID, auction);
 		});
 	};
 
 	getAuctionWinner(auctionId) {
-		// Your implementation goes here
-        // Should emit a GET_AUCTION_WINNER event when the data is available
+		// Finding auctionWinner by given Id
+		Auction.findById(auctionId, (err, auction) =>{
+			if (err) { throw new Error(err); }
+			if ( auction === null ) {
+				this.emit(this.events.NOT_FOUND, '');
+				return;
+			}
+			// Variable to hold the current date
+			var date = new Date();
+			// Checking if the auction is ongoing and does not have a winner yet
+			if ( date < auction.endDate ) {
+				this.emit(this.events.AUCTION_HAS_NOT_ENDED, 'The auction is ongoing and therefore does not have a winner');
+				return;
+			}
+			// Checking if the auction has ended with no bids
+			if ( date > auction.endDate && auction.auctionWinner === null ) {
+				this.emit(this.events.NO_BIDS, 'This auction had no bids.');
+				return;
+			}
+			// Returning the auction winner
+			else {
+				this.emit(this.events.GET_AUCTION_WINNER, auction.auctionWinner);
+			}
+		});
 	};
 
 	createAuction(auction) {
-		// Your implementation goes here
-        // Should emit a CREATE_AUCTION event when the data is available
-				Art.findOne({ _id: auction.artId }, (err, art) => {
-					if (err) { throw new Error(err); }
-					else if (art.isAuctionItem === false) {
-						this.emit(this.events.ITEM_NOT_AUCTIONITEM, "ArtItem is not an Auction Item");
-						return;
-					}
-					Auction.create({
-						artId: auction.artId,
-						minimumPrice: auction.minimumPrice,
-						endDate: auction.endDate,
-						auctionWinner: auction.auctionWinner
-					}, err => {
-						if (err) { throw new Error(err); }
-						this.emit(this.events.CREATE_AUCTION, auction);
-					});
-				});
+		// Finding the art to be auctioned
+		Art.findOne({ _id: auction.artId }, (err, art) => {
+			if (err) { throw new Error(err); }
+			// Checking if the art item is an auctionItem
+			else if (art.isAuctionItem === false) {
+				this.emit(this.events.ITEM_NOT_AUCTIONITEM, "ArtItem is not an Auction Item");
+				return;
+			}
+			Auction.create({
+				artId: auction.artId,
+				minimumPrice: auction.minimumPrice,
+				endDate: auction.endDate,
+				auctionWinner: auction.auctionWinner
+			}, err => {
+				if (err) { throw new Error(err); }
+				this.emit(this.events.CREATE_AUCTION, auction);
+			});
+		});
 	};
 
 	getAuctionBidsWithinAuction(aId) {
-		// Your implementation goes here
-    // Should emit a GET_AUCTION_BIDS_WITHIN_AUCTION event when the data is available
+		// Finding the auctionbids within the auction
 		AuctionBid.find({auctionId: aId}, (err, bids) => {
 			if (err) { throw new Error(err); }
 			this.emit(this.events.GET_AUCTION_BIDS_WITHIN_AUCTION, bids);
@@ -73,37 +103,43 @@ class AuctionService extends EventEmitter {
 	};
 
 	placeNewBid(auctionId, customerId, price) {
-		// Your implementation goes here
-    // Should emit a PLACE_NEW_BID event when the data is available
-		// Finding the auction to place the bid
-		Auction.findById(auctionId, (err, auction) =>
+		// Variable to hold a reference to this
+		var self = this;
+		// Finding the highest auctionbid
+		AuctionBid.findOne({ auctionId : auctionId }).sort({'price' : -1}).limit(1).exec(function (err, high)
 		{
-			var date = new Date();
-			console.log('finding minimum price')
 			if (err) { throw new Error(err); }
-			// checking if the bid is lower than the minimum bid
-			else if ( price < auction.minimumPrice ) {
-				this.emit(this.events.PRICE_LOWER_THAN_MINIMUM_PRICE, 'Bid is lower than minimum price');
-				return;
-			}
-			else if ( date > auction.endDate ) {
-				this.emit(this.events.AUCTION_IS_PAST_END_DATE, 'Auction has ended')
-			}
-			console.log('end date is ' + auction.endDate);
-			console.log('current date is ' + date);
-
-			var self = this;
-			//Finding the highest bid currently.
-			console.log('Finding highest bid')
-			AuctionBid.findOne({ auctionId: auctionId}).sort({'price' : -1}).limit(1).exec(function (err, high)
-			{
-				console.log('highest bid is: ' + high.price)
-				if (err) { throw new Error(err); }
-				else if (price < high.price) {
-					console.log('emitting event')
+			if(high){
+				// Checking if the bid amount is lower than the current highest bid
+				if (price <= high.price) {
 					self.emit(self.events.PRICE_LOWER_THAN_MINIMUM_PRICE, 'Bid is lower than current highest bid');
 					return;
 				}
+			}
+			// Finding the auction to place the bid
+			Auction.findById(auctionId, (err, auction) =>
+			{
+				// Variable to hold the current date
+				var date = new Date();
+				if (err) { throw new Error(err); }
+				if ( auction === null ) {
+					this.emit(this.events.NOT_FOUND, '');
+					return;
+				}
+				// Checking if the bid is lower than the minimum bid
+				else if ( price < auction.minimumPrice ) {
+					self.emit(self.events.PRICE_LOWER_THAN_MINIMUM_PRICE, 'Bid is lower than minimum price');
+					return;
+				}
+				// Checking if the auction has ended
+				else if ( date > auction.endDate ) {
+					self.emit(self.events.AUCTION_IS_PAST_END_DATE, 'Auction has ended')
+					return;
+				}
+				// Updating the Auction Winner
+				auction.auctionWinner = customerId;
+				auction.save();
+				// Creating the auctionbid
 				AuctionBid.create({
 					auctionId: auctionId,
 					customerId: customerId,

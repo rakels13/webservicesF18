@@ -7,12 +7,12 @@ class ArtService extends EventEmitter {
         this.events = {
             GET_ALL_ARTS: 'GET_ALL_ARTS',
             GET_ART_BY_ID: 'GET_ART_BY_ID',
-            CREATE_ART: 'CREATE_ART'
+            CREATE_ART: 'CREATE_ART',
+            NOT_FOUND: 'NOT_FOUND'
         };
     }
     getAllArts() {
-        // Your implementation goes here
-        // Should emit a GET_ALL_ARTS event when the data is available
+        // Finding all arts and emitting the proper event when the data is available
         Art.find({}, (err, arts) => {
           if (err){ throw new Error(err); }
           this.emit(this.events.GET_ALL_ARTS, arts);
@@ -20,8 +20,7 @@ class ArtService extends EventEmitter {
     };
 
     getArtById(id) {
-        // Your implementation goes here
-        // Should emit a GET_ART_BY_ID event when the data is available
+        // Finding art by the given id and emitting the proper event when it is found
         Art.findById(id, (err, art) => {
           if (err) { throw new Error(err); }
           this.emit(this.events.GET_ART_BY_ID, art);
@@ -29,8 +28,7 @@ class ArtService extends EventEmitter {
     };
 
     createArt(art) {
-        // Your implementation goes here
-        // Should emit a CREATE_ART event when the data is available
+        // Creating a new art item and emitting the proper event when it has been created
         Art.create({
           title: art.title,
           artistId: art.artistId,

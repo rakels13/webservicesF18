@@ -9,48 +9,57 @@ class CustomerService extends EventEmitter {
             GET_ALL_CUSTOMERS: 'GET_ALL_CUSTOMERS',
             GET_CUSTOMER_BY_ID: 'GET_CUSTOMER_BY_ID',
             GET_CUSTOMER_AUCTION_BIDS: 'GET_CUSTOMER_AUCTION_BIDS',
-            CREATE_CUSTOMER: 'CREATE_CUSTOMER'
+            CREATE_CUSTOMER: 'CREATE_CUSTOMER',
+            NOT_FOUND: 'NOT_FOUND'
         };
     }
     getAllCustomers() {
-        // Your implementation goes here
-        // Should emit a GET_ALL_CUSTOMERS event when the data is available
-        Customer.find({}, (err, customers) => {
-          if (err) { throw new Error(err); }
-          this.emit(this.events.GET_ALL_CUSTOMERS, customers);
-        });
+      // Finding all customers and emitting the proper event when the data is available
+      Customer.find({}, (err, customers) => {
+        if (err) { throw new Error(err); }
+        if (customers === null) {
+          this.emit(this.events.NOT_FOUND, '');
+          return;
+        }
+        this.emit(this.events.GET_ALL_CUSTOMERS, customers);
+      });
     };
 
     getCustomerById(id) {
-        // Your implementation goes here
-        // Should emit a GET_CUSTOMER_BY_ID event when the data is available
-        Customer.findById(id, (err, customer) => {
-          if (err) { throw new Error(err); }
-          this.emit(this.events.GET_CUSTOMER_BY_ID, customer);
-        });
+      // Finding customer by given Id and emitting the proper event when found
+      Customer.findById(id, (err, customer) => {
+        if (err) { throw new Error(err); }
+        if (customer === null) {
+          this.emit(this.events.NOT_FOUND, '');
+          return;
+        }
+        this.emit(this.events.GET_CUSTOMER_BY_ID, customer);
+      });
     };
 
     getCustomerAuctionBids(cId) {
-        // Your implementation goes here
-        // Should emit a GET_CUSTOMER_AUCTION_BIDS event when the data is available
-        AuctionBid.find({ customerId: { $in: cId} }, (err, bids) => {
-          if (err) { throw new Error(err); }
-          this.emit(this.events.GET_CUSTOMER_AUCTION_BIDS, bids);
-        });
+      // Finding all bids a customer has made
+      AuctionBid.find({ customerId: { $in: cId} }, (err, bids) => {
+        if (err) { throw new Error(err); }
+        if (bids === null) {
+          this.emit(this.events.NOT_FOUND, '');
+          return;
+        }
+        this.emit(this.events.GET_CUSTOMER_AUCTION_BIDS, bids);
+      });
     };
 
     createCustomer(customer) {
-        // Your implementation goes here
-        // Should emit a CREATE_CUSTOMER event when the data is available
-        Customer.create({
-          name: customer.name,
-          username: customer.username,
-          email: customer.email,
-          address: customer.address
-        }, err => {
-          if (err) { throw new Error(err); }
-          this.emit(this.events.CREATE_CUSTOMER, customer);
-        });
+      // Creating new customer and emitting the proper event when it has been created
+      Customer.create({
+        name: customer.name,
+        username: customer.username,
+        email: customer.email,
+        address: customer.address
+      }, err => {
+        if (err) { throw new Error(err); }
+        this.emit(this.events.CREATE_CUSTOMER, customer);
+      });
     };
 };
 

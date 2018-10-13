@@ -13,7 +13,7 @@ const CustomerService = require('./services/customerService');
 // Get all arts [GET] /api/arts
 router.get('/arts', (req, res) => {
   const artService = new ArtService();
-
+  // Eventhandling - responding with all art
   artService.on(artService.events.GET_ALL_ARTS, data => {
     return res.json(data);
   });
@@ -25,7 +25,7 @@ router.get('/arts', (req, res) => {
 router.get('/arts/:id', (req, res) => {
   const { id } = req.params;
   const artService = new ArtService();
-
+  // Eventhandling - responding with the art by the requested id
   artService.on(artService.events.GET_ART_BY_ID, data => {
     return res.json(data);
   });
@@ -37,7 +37,7 @@ router.get('/arts/:id', (req, res) => {
 router.post('/arts', (req, res) => {
   const { body } = req;
   const artService = new ArtService();
-
+  // Eventhandling - the art item has been created
   artService.on(artService.events.CREATE_ART, data => {
     return res.status(201).send(data);
   });
@@ -48,7 +48,7 @@ router.post('/arts', (req, res) => {
 // Get all artists [GET] /api/artists
 router.get('/artists', (req, res) => {
   const artistService = new ArtistService();
-
+  // Eventhandling - responding with all artists
   artistService.on(artistService.events.GET_ALL_ARTISTS, data => {
     return res.json(data);
   });
@@ -60,7 +60,7 @@ router.get('/artists', (req, res) => {
 router.get('/artists/:id', (req, res) => {
   const { id } = req.params;
   const artistService = new ArtistService();
-
+  // Eventhandling - responding with the artist by the requested Id
   artistService.on(artistService.events.GET_ARTIST_BY_ID, data => {
     return res.json(data);
   });
@@ -72,7 +72,7 @@ router.get('/artists/:id', (req, res) => {
 router.post('/artists', (req, res) => {
   const { body } = req;
   const artistService = new ArtistService();
-
+  // Eventhandling - new Artist has been created
   artistService.on(artistService.events.CREATE_ARTIST, data => {
     return res.status(201).send(data);
   });
@@ -83,7 +83,7 @@ router.post('/artists', (req, res) => {
 // Get all customers [GET] /api/customers
 router.get('/customers', (req, res) => {
   const customerService = new CustomerService();
-
+  // Eventhandling - responding with all customers
   customerService.on(customerService.events.GET_ALL_CUSTOMERS, data => {
     return res.json(data);
   });
@@ -95,7 +95,7 @@ router.get('/customers', (req, res) => {
 router.get('/customers/:id', (req, res) => {
   const { id } = req.params;
   const customerService = new CustomerService();
-
+  // Eventhandling responding with the customer by requested Id
   customerService.on(customerService.events.GET_CUSTOMER_BY_ID, data => {
     return res.json(data);
   });
@@ -107,7 +107,7 @@ router.get('/customers/:id', (req, res) => {
 router.post('/customers', (req, res) => {
   const { body } = req;
   const customerService = new CustomerService();
-
+  // Eventhandling - A new customer has been created
   customerService.on(customerService.events.CREATE_CUSTOMER, data => {
     return res.status(201).send(data);
   });
@@ -119,7 +119,7 @@ router.post('/customers', (req, res) => {
 router.get('/customers/:id/auction-bids', (req, res) => {
   const { id } = req.params;
   const customerService = new CustomerService();
-
+  // Eventhandling - responding with auctionbids for the requested customer
   customerService.on(customerService.events.GET_CUSTOMER_AUCTION_BIDS, data => {
     return res.json(data);
   });
@@ -130,7 +130,7 @@ router.get('/customers/:id/auction-bids', (req, res) => {
 // Get all auctions [GET] /api/auctions
 router.get('/auctions', (req, res) => {
   const auctionService = new AuctionService();
-
+  // Eventhandling - responding with all auctions
   auctionService.on(auctionService.events.GET_ALL_AUCTIONS, data => {
     return res.json(data);
   });
@@ -142,7 +142,7 @@ router.get('/auctions', (req, res) => {
 router.get('/auctions/:id', (req, res) => {
   const { id } = req.params;
   const auctionService = new AuctionService();
-
+  // Eventhandling - responding with the auction by the requested Id
   auctionService.on(auctionService.events.GET_AUCTION_BY_ID, data => {
     return res.json(data);
   });
@@ -152,20 +152,33 @@ router.get('/auctions/:id', (req, res) => {
 
 // Get winner of auction [GET] /api/auctions/:id/winner
 router.get('/auctions/:id/winner', (req, res) => {
-    const { id } = req.params;
-    const winner = auctionService.getAuctionWinner(id);
-    if (winner === -1) { return res.status(404).send(); }
-    return res.json(winner);
+  const { id } = req.params;
+  const auctionService = new AuctionService();
+  // Eventhandling - responding with the auction winner
+  auctionService.on(auctionService.events.GET_AUCTION_WINNER, data => {
+    return res.json(data);
+  });
+  // Eventhandling - auction is ongoing - so no winner yet
+  auctionService.on(auctionService.events.AUCTION_HAS_NOT_ENDED, data => {
+    return res.status(409).send(data);
+  });
+  // Eventhandling - auction has ended without any bids - no winner
+  auctionService.on(auctionService.events.NO_BIDS, data => {
+    return res.status(200).send(data);
+  });
+
+  auctionService.getAuctionWinner(id);
 });
 
 // Create new auction [POST] /api/auctions
 router.post('/auctions', (req, res) => {
   const { body } = req;
   const auctionService = new AuctionService();
-
+  // Eventhandling - New auction was created
   auctionService.on(auctionService.events.CREATE_AUCTION, data => {
     return res.status(201).send(data);
   });
+  // Eventhandling - Item cannot be put up for auction
   auctionService.on(auctionService.events.ITEM_NOT_AUCTIONITEM, data => {
     return res.status(412).send(data);
   });
@@ -177,7 +190,7 @@ router.post('/auctions', (req, res) => {
 router.get('/auctions/:id/bids', (req, res) => {
   const { id } = req.params;
   const auctionService = new AuctionService();
-
+  // Eventhandling - responding with all bids within an auction
   auctionService.on(auctionService.events.GET_AUCTION_BIDS_WITHIN_AUCTION, data => {
     return res.json(data);
   });
@@ -190,13 +203,15 @@ router.post('/auctions/:id/bids', (req, res) => {
   const { id } = req.params;
   const { body } = req;
   const auctionService = new AuctionService();
-
+  // Eventhandling - new bid has been placed
   auctionService.on(auctionService.events.PLACE_NEW_BID, data => {
     return res.json(data);
   });
+  // Eventhandling - the bid is lower than minimum bid or the current highest bid
   auctionService.on(auctionService.events.PRICE_LOWER_THAN_MINIMUM_PRICE, data => {
     return res.status(412).send(data);
   });
+  // Eventhandling - the auction has ended
   auctionService.on(auctionService.events.AUCTION_IS_PAST_END_DATE, data => {
     return res.status(403).send(data);
   });
