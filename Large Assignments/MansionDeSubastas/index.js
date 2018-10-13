@@ -197,8 +197,10 @@ router.post('/auctions/:id/bids', (req, res) => {
   auctionService.on(auctionService.events.PRICE_LOWER_THAN_MINIMUM_PRICE, data => {
     return res.status(412).send(data);
   });
-  console.log('customerId: ' + body.customerId);
-  console.log('price: ' + body.price);
+  auctionService.on(auctionService.events.AUCTION_IS_PAST_END_DATE, data => {
+    return res.status(403).send(data);
+  });
+
   auctionService.placeNewBid(id, body.customerId, body.price);
 });
 
