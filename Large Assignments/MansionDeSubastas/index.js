@@ -17,6 +17,10 @@ router.get('/arts', (req, res) => {
   artService.on(artService.events.GET_ALL_ARTS, data => {
     return res.json(data);
   });
+  // Art NOT_FOUND
+  artService.on(artService.events.NOT_FOUND, data => {
+    return res.status(404).send();
+  });
 
   artService.getAllArts();
 });
@@ -28,6 +32,10 @@ router.get('/arts/:id', (req, res) => {
   // Eventhandling - responding with the art by the requested id
   artService.on(artService.events.GET_ART_BY_ID, data => {
     return res.json(data);
+  });
+  // Art NOT_FOUND
+  artService.on(artService.events.NOT_FOUND, data => {
+    return res.status(404).send();
   });
 
   artService.getArtById(id);
@@ -52,6 +60,10 @@ router.get('/artists', (req, res) => {
   artistService.on(artistService.events.GET_ALL_ARTISTS, data => {
     return res.json(data);
   });
+  // Artists NOT_FOUND
+  artistService.on(artistService.events.NOT_FOUND, data => {
+    return res.status(404).send();
+  });
 
   artistService.getAllArtists();
 });
@@ -63,6 +75,10 @@ router.get('/artists/:id', (req, res) => {
   // Eventhandling - responding with the artist by the requested Id
   artistService.on(artistService.events.GET_ARTIST_BY_ID, data => {
     return res.json(data);
+  });
+  // Artist NOT_FOUND
+  artistService.on(artistService.events.NOT_FOUND, data => {
+    return res.status(404).send();
   });
 
   artistService.getArtistById(id);
@@ -87,6 +103,10 @@ router.get('/customers', (req, res) => {
   customerService.on(customerService.events.GET_ALL_CUSTOMERS, data => {
     return res.json(data);
   });
+  // Customers NOT_FOUND
+  customerService.on(customerService.events.NOT_FOUND, data => {
+    return res.status(404).send();
+  });
 
   customerService.getAllCustomers();
 });
@@ -98,6 +118,10 @@ router.get('/customers/:id', (req, res) => {
   // Eventhandling responding with the customer by requested Id
   customerService.on(customerService.events.GET_CUSTOMER_BY_ID, data => {
     return res.json(data);
+  });
+  // Customer NOT_FOUND
+  customerService.on(customerService.events.NOT_FOUND, data => {
+    return res.status(404).send();
   });
 
   customerService.getCustomerById(id);
@@ -123,6 +147,10 @@ router.get('/customers/:id/auction-bids', (req, res) => {
   customerService.on(customerService.events.GET_CUSTOMER_AUCTION_BIDS, data => {
     return res.json(data);
   });
+  // AuctionBids NOT_FOUND
+  customerService.on(customerService.events.NOT_FOUND, data => {
+    return res.status(404).send();
+  });
 
   customerService.getCustomerAuctionBids(id);
 });
@@ -133,6 +161,10 @@ router.get('/auctions', (req, res) => {
   // Eventhandling - responding with all auctions
   auctionService.on(auctionService.events.GET_ALL_AUCTIONS, data => {
     return res.json(data);
+  });
+  // Auctions NOT_FOUND
+  auctionService.on(auctionService.events.NOT_FOUND, data => {
+    return res.status(404).send();
   });
 
   auctionService.getAllAuctions();
@@ -145,6 +177,10 @@ router.get('/auctions/:id', (req, res) => {
   // Eventhandling - responding with the auction by the requested Id
   auctionService.on(auctionService.events.GET_AUCTION_BY_ID, data => {
     return res.json(data);
+  });
+  // Auction NOT_FOUND
+  auctionService.on(auctionService.events.NOT_FOUND, data => {
+    return res.status(404).send();
   });
 
   auctionService.getAuctionById(id);
@@ -165,6 +201,10 @@ router.get('/auctions/:id/winner', (req, res) => {
   // Eventhandling - auction has ended without any bids - no winner
   auctionService.on(auctionService.events.NO_BIDS, data => {
     return res.status(200).send(data);
+  });
+  // Auction NOT_FOUND
+  auctionService.on(auctionService.events.NOT_FOUND, data => {
+    return res.status(404).send();
   });
 
   auctionService.getAuctionWinner(id);
@@ -193,6 +233,10 @@ router.get('/auctions/:id/bids', (req, res) => {
   // Eventhandling - responding with all bids within an auction
   auctionService.on(auctionService.events.GET_AUCTION_BIDS_WITHIN_AUCTION, data => {
     return res.json(data);
+  });
+  // AuctionBids NOT_FOUND
+  artService.on(artService.events.NOT_FOUND, data => {
+    return res.status(404).send();
   });
 
   auctionService.getAuctionBidsWithinAuction(id);

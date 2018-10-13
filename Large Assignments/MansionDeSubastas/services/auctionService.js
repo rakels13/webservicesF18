@@ -98,6 +98,10 @@ class AuctionService extends EventEmitter {
 		// Finding the auctionbids within the auction
 		AuctionBid.find({auctionId: aId}, (err, bids) => {
 			if (err) { throw new Error(err); }
+			if ( bids === null ) {
+				this.emit(this.events.NOT_FOUND, '');
+				return;
+			}
 			this.emit(this.events.GET_AUCTION_BIDS_WITHIN_AUCTION, bids);
 		});
 	};

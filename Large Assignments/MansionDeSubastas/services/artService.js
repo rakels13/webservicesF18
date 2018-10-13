@@ -15,6 +15,10 @@ class ArtService extends EventEmitter {
         // Finding all arts and emitting the proper event when the data is available
         Art.find({}, (err, arts) => {
           if (err){ throw new Error(err); }
+          if ( arts === null ) {
+            this.emit(this.events.NOT_FOUND, '');
+            return;
+          }
           this.emit(this.events.GET_ALL_ARTS, arts);
         });
     };
@@ -23,6 +27,10 @@ class ArtService extends EventEmitter {
         // Finding art by the given id and emitting the proper event when it is found
         Art.findById(id, (err, art) => {
           if (err) { throw new Error(err); }
+          if ( art === null ) {
+            this.emit(this.events.NOT_FOUND, '');
+            return;
+          }
           this.emit(this.events.GET_ART_BY_ID, art);
         });
     };
