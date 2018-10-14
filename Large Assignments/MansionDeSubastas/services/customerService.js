@@ -18,7 +18,7 @@ class CustomerService extends EventEmitter {
       Customer.find({}, (err, customers) => {
         if (err) { throw new Error(err); }
         if (customers === null) {
-          this.emit(this.events.NOT_FOUND, '');
+          this.emit(this.events.NOT_FOUND, 'No customers found');
           return;
         }
         this.emit(this.events.GET_ALL_CUSTOMERS, customers);
@@ -30,7 +30,7 @@ class CustomerService extends EventEmitter {
       Customer.findById(id, (err, customer) => {
         if (err) { throw new Error(err); }
         if (customer === null) {
-          this.emit(this.events.NOT_FOUND, '');
+          this.emit(this.events.NOT_FOUND, 'No customer found by given customerId');
           return;
         }
         this.emit(this.events.GET_CUSTOMER_BY_ID, customer);
@@ -42,7 +42,7 @@ class CustomerService extends EventEmitter {
       AuctionBid.find({ customerId: { $in: cId} }, (err, bids) => {
         if (err) { throw new Error(err); }
         if (bids === null) {
-          this.emit(this.events.NOT_FOUND, '');
+          this.emit(this.events.NOT_FOUND, 'No auctionBids found for given customerId');
           return;
         }
         this.emit(this.events.GET_CUSTOMER_AUCTION_BIDS, bids);

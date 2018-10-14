@@ -16,7 +16,7 @@ class ArtService extends EventEmitter {
         Art.find({}, (err, arts) => {
           if (err){ throw new Error(err); }
           if ( arts === null ) {
-            this.emit(this.events.NOT_FOUND, '');
+            this.emit(this.events.NOT_FOUND, 'No art items were found');
             return;
           }
           this.emit(this.events.GET_ALL_ARTS, arts);
@@ -28,7 +28,7 @@ class ArtService extends EventEmitter {
         Art.findById(id, (err, art) => {
           if (err) { throw new Error(err); }
           if ( art === null ) {
-            this.emit(this.events.NOT_FOUND, '');
+            this.emit(this.events.NOT_FOUND, 'No art item by given id was found');
             return;
           }
           this.emit(this.events.GET_ART_BY_ID, art);

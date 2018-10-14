@@ -27,7 +27,7 @@ class AuctionService extends EventEmitter {
 		Auction.find({}, (err, auctions) => {
 			if (err) { throw new Error(err); }
 			if (auctions === null) {
-				this.emit(this.events.NOT_FOUND, '');
+				this.emit(this.events.NOT_FOUND, 'No auctions found');
 				return;
 			}
 			this.emit(this.events.GET_ALL_AUCTIONS, auctions);
@@ -38,8 +38,8 @@ class AuctionService extends EventEmitter {
 		// Finding auction by given id and emitting the proper event when it is found
 		Auction.findById(id, (err, auction) => {
 			if (err) { throw new Error(err); }
-			if (customers === null) {
-				this.emit(this.events.NOT_FOUND, '');
+			if (auction === null) {
+				this.emit(this.events.NOT_FOUND, 'No auction found with given auctionId');
 				return;
 			}
 			this.emit(this.events.GET_AUCTION_BY_ID, auction);
@@ -51,7 +51,7 @@ class AuctionService extends EventEmitter {
 		Auction.findById(auctionId, (err, auction) =>{
 			if (err) { throw new Error(err); }
 			if ( auction === null ) {
-				this.emit(this.events.NOT_FOUND, '');
+				this.emit(this.events.NOT_FOUND, 'No auction found with given auctionId');
 				return;
 			}
 			// Variable to hold the current date
@@ -99,7 +99,7 @@ class AuctionService extends EventEmitter {
 		AuctionBid.find({auctionId: aId}, (err, bids) => {
 			if (err) { throw new Error(err); }
 			if ( bids === null ) {
-				this.emit(this.events.NOT_FOUND, '');
+				this.emit(this.events.NOT_FOUND, 'No bids found for given auctionId');
 				return;
 			}
 			this.emit(this.events.GET_AUCTION_BIDS_WITHIN_AUCTION, bids);
@@ -127,7 +127,7 @@ class AuctionService extends EventEmitter {
 				var date = new Date();
 				if (err) { throw new Error(err); }
 				if ( auction === null ) {
-					this.emit(this.events.NOT_FOUND, '');
+					self.emit(this.events.NOT_FOUND, 'No auction found');
 					return;
 				}
 				// Checking if the bid is lower than the minimum bid

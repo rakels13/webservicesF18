@@ -235,7 +235,7 @@ router.get('/auctions/:id/bids', (req, res) => {
     return res.json(data);
   });
   // AuctionBids NOT_FOUND
-  artService.on(artService.events.NOT_FOUND, data => {
+  auctionService.on(auctionService.events.NOT_FOUND, data => {
     return res.status(404).send();
   });
 
