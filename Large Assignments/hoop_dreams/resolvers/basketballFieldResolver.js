@@ -1,12 +1,10 @@
-const basketballFieldService = require('../services/basketballFieldService.js');
-
 module.exports = {
   queries: {
-    allBasketballFields: () => {
-      return basketballFieldService.getAllBasketballFields();
+    allBasketballFields: (parent, args, context) => {
+      return context.basketballFieldService.getAllBasketballFields();
     },
-    basketballField: (parent, args) => {
-      return basketballFieldService.getBasketballFieldById(args.id);
+    basketballField: (parent, args, context) => {
+      return context.basketballFieldService.getBasketballFieldById(args.id);
     }
   }
 };

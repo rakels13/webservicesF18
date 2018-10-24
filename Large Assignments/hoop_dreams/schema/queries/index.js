@@ -6,6 +6,5 @@ module.exports = `
     basketballField(id: ID!): BasketballField!
     pickupGame(id: ID!): PickupGame!
     player(id: ID!): Player!
-    pickupGame(location: BasketballField!): [PickupGame!]!
   }
 `;

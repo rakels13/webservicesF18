@@ -1,10 +1,8 @@
-const pickupGame = require('../data/db').PickupGame;
-
 module.exports = {
   queries: {
-    allPickupGames: () => {
+    allPickupGames: (parent, args, context) => {
       return new Promise((resolve, reject) => {
-        pickupGame.find({}, (err, games) => {
+        context.pickupGame.find({}, (err, games) => {
           if (err) {
             reject(err);
           }
@@ -13,7 +11,7 @@ module.exports = {
       });
     },
     pickupGame: (parent, args) => {
-      return pickupGame.findById(args.id, (err, game) => {
+      return context.pickupGame.findById(args.id, (err, game) => {
         if (err) {throw new Error(err);}
         return game;
       });
