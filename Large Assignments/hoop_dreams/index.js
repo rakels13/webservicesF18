@@ -1,10 +1,16 @@
 const { ApolloServer } = require('apollo-server');
 const typeDefs = require('./schema');
-const resolvers = require('./resolvers')
+const resolvers = require('./resolvers');
+const player = require('./data/db').Player;
+const pickupGame = require('./data/db').PickupGame;
 
 const server = new ApolloServer({
   typeDefs,
-  resolvers
+  resolvers,
+  context: {
+    player,
+    pickupGame
+  }
     /*
         Add typeDefs
         Add resolvers

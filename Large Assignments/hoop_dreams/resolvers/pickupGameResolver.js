@@ -3,13 +3,17 @@ const pickupGame = require('../data/db').PickupGame;
 module.exports = {
   queries: {
     allPickupGames: () => {
-      return pickupGame.find({}, (err, games) => {
-        if (err) {throw new Error(err);}
-        return games;
+      return new Promise((resolve, reject) => {
+        pickupGame.find({}, (err, games) => {
+          if (err) {
+            reject(err);
+          }
+          resolve(games);
+        });
       });
     },
     pickupGame: (parent, args) => {
-      player.findById(args, (err, game) => {
+      return pickupGame.findById(args.id, (err, game) => {
         if (err) {throw new Error(err);}
         return game;
       });
