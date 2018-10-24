@@ -10,11 +10,16 @@ module.exports = {
         });
       });
     },
-    pickupGame: (parent, args) => {
+    pickupGame: (parent, args, context) => {
       return context.pickupGame.findById(args.id, (err, game) => {
         if (err) {throw new Error(err);}
         return game;
       });
     }
-  }
+  },
+  PickupGame: {
+    location: pickupGame => {
+      return context.basketballFieldService.getBasketballFieldById(pickupGame.location);
+    }
+  },
 };

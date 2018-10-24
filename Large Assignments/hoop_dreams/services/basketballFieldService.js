@@ -16,9 +16,12 @@ const basketballFieldService = () => {
   }
 
   const getBasketballFieldById = (id) => {
+    console.log("bfield id " + id);
     url = url + id;
     return new Promise((resolve, reject) => {
       request.get(url, (err, res, body) => {
+        console.log("bfield is")
+          console.log(body);
           if(err) {
               reject(err);
           }
