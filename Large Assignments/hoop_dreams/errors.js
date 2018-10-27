@@ -40,6 +40,7 @@ class NotFoundError extends Error {
 
 class BadRequest extends Error {
     constructor(message = 'Field arguments were not setup correctly') {
+      consol.log('constructing error message');
         super(message);
         this.name = 'BadRequest';
         this.code = 400;

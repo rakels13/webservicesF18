@@ -1,5 +1,5 @@
 module.exports = `
-  type SignupPlayerInput {
+  input SignupPlayerInput {
     playerId: ID!
     pickupGameId: ID!
   }

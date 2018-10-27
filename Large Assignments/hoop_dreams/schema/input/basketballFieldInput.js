@@ -1,5 +1,5 @@
 module.exports = `
-  type BasketballFieldInput {
+  input BasketballFieldInput {
     name: String!
     capacity: Int!
     yearOfCreation: Moment!

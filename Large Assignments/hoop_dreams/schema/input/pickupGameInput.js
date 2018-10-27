@@ -1,5 +1,5 @@
 module.exports = `
-  type PickupGameInput {
+  input PickupGameInput {
     start: Moment!
     end: Moment!
     basketballFieldId: ID!

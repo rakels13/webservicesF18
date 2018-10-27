@@ -7,11 +7,52 @@ module.exports = {
       });
     },
     player: (parent, args, context) => {
-      console.log("args: " + args.id);
       return context.player.findById(args.id, (err, player) => {
         if (err) { throw new Error(err); }
         return player;
       });
+    },
+  },
+  types: {
+    Player: {
+      playedGames: (parent, args, context) => {
+        return context.pickupGame.find({id: {$in: parent.playedGames }}, (err, games) => {
+          return games;
+        });
+      }
+    }
+  },
+  mutations: {
+    createPlayer: (parent, args, context) => {
+      return new Promise((resolve, reject) => {
+        context.player.create({
+          name: args.input.name
+        }, err => {
+          if (err) { reject(err); }
+        });
+        context.player.findOne({name: args.input.name}, (err, player ) => {
+          if (err) { reject(err); }
+          resolve(player);
+        });
+      });
+    },
+    updatePlayer: (parent, args, context) => {
+      return new Promise((resolve, reject) => {
+        context.player.findById(args.id, (err, player ) => {
+          if (err) { reject(err); }
+          player.name = args.input.name;
+          player.save();
+          resolve(player);
+        });
+      });
+    },
+    removePlayer: (parent, args, context) => {
+      return new Promise((resolve, reject) => {
+        context.player.deleteOne({"_id" : args.id}, (err) => {
+          if (err) { reject(err); }
+          resolve(true);
+        })
+      })
     }
   }
 };
