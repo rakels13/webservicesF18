@@ -24,16 +24,8 @@ module.exports = {
   },
   mutations: {
     createPlayer: (parent, args, context) => {
-      return new Promise((resolve, reject) => {
-        context.player.create({
-          name: args.input.name
-        }, err => {
-          if (err) { reject(err); }
-        });
-        context.player.findOne({name: args.input.name}, (err, player ) => {
-          if (err) { reject(err); }
-          resolve(player);
-        });
+      return context.player.create({
+        name: args.input.name
       });
     },
     updatePlayer: (parent, args, context) => {

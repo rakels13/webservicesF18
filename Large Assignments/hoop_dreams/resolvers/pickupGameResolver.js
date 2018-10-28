@@ -37,28 +37,12 @@ module.exports = {
     },
   },
   mutations: {
-    createPickupGame: async (parent, args, context) => {
-      //const field = await context.basketballFieldService.getBasketballFieldById(args.input.baskteballFieldId);
-
-      return new Promise((resolve, reject) => {
-        const field = await context.basketballFieldService.getBasketballFieldById(args.input.baskteballFieldId);
-        //const field = context.basketballFieldService.getBasketballFieldById(args.input.baskteballFieldId);
-        console.log(field.status);
-        if (field.status === 'CLOSED') {
-          throw new BasketballFieldClosedError();
-          return reject();
-        }
-        else {
-          context.pickupGame.create({
-              start: args.input.start,
-              end: args.input.end,
-              location: args.input.basketballFieldId,
-              host: args.input.hostId
-            }, (err, game) => {
-              if (err) {reject(err); }
-              resolve(game);
-            });
-        }
+    createPickupGame: (parent, args, context) => {
+      return context.pickupGame.create({
+        start: args.input.start,
+        end: args.input.end,
+        location: args.input.basketballFieldId,
+        host: args.input.hostId
       });
     },
     removePickupGame: (parent, args, context) => {
