@@ -1,4 +1,5 @@
 const BasketballFieldClosedError = require('../errors.js').BasketballFieldClosedError;
+const PickupGameExceedMaximumError = require('../errors.js').PickupGameExceedMaximumError;
 
 module.exports = {
   queries: {
@@ -37,13 +38,13 @@ module.exports = {
     },
   },
   mutations: {
-    createPickupGame: (parent, args, context) => {
-      return context.pickupGame.create({
-        start: args.input.start,
-        end: args.input.end,
-        location: args.input.basketballFieldId,
-        host: args.input.hostId
-      });
+    createPickupGame: async (parent, args, context) => {
+        const basketballField = await context.basketballFieldService.getBasketballFieldById(args.input.basketballFieldId);
+        const jsonBasketballField = JSON.parse(basketballField);
+        if (jsonBasketballField.status === 'CLOSED') {
+            throw new BasketballFieldClosedError();
+        }
+        return context.pickupGame.create({start: args.input.start, end: args.input.end, location: args.input.basketballFieldId, host: args.input.hostId});
     },
     removePickupGame: (parent, args, context) => {
       return new Promise((resolve, reject) => {
@@ -53,7 +54,16 @@ module.exports = {
         });
       });
     },
-    addPlayerToPickupGame: (parent, args, context) => {
+    addPlayerToPickupGame: async (parent, args, context) => {
+
+      const game = await context.pickupGame.findById(args.input.pickupGameId);
+      const basketballField = await context.basketballFieldService.getBasketballFieldById(game.location);
+      const jsonBasketballField = JSON.parse(basketballField);
+
+      if (game.registeredPlayers.lenght === jsonBasketballField.capacity) {
+         throw new PickupGameExceedMaximumError();
+      }
+      
       return new Promise((resolve, reject) => {
         context.player.updateOne({_id: args.input.playerId},
           { $push: {playedGames: args.input.pickupGameId}}, (err) => {
