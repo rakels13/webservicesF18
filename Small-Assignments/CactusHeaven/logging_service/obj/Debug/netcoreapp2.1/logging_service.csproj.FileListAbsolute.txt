@@ -1,0 +1,11 @@
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Small-Assignments\CactusHeaven\logging_service\bin\Debug\netcoreapp2.1\logging_service.deps.json
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Small-Assignments\CactusHeaven\logging_service\bin\Debug\netcoreapp2.1\logging_service.runtimeconfig.json
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Small-Assignments\CactusHeaven\logging_service\bin\Debug\netcoreapp2.1\logging_service.runtimeconfig.dev.json
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Small-Assignments\CactusHeaven\logging_service\bin\Debug\netcoreapp2.1\logging_service.dll
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Small-Assignments\CactusHeaven\logging_service\bin\Debug\netcoreapp2.1\logging_service.pdb
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Small-Assignments\CactusHeaven\logging_service\obj\Debug\netcoreapp2.1\logging_service.csprojAssemblyReference.cache
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Small-Assignments\CactusHeaven\logging_service\obj\Debug\netcoreapp2.1\logging_service.csproj.CoreCompileInputs.cache
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Small-Assignments\CactusHeaven\logging_service\obj\Debug\netcoreapp2.1\logging_service.AssemblyInfoInputs.cache
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Small-Assignments\CactusHeaven\logging_service\obj\Debug\netcoreapp2.1\logging_service.AssemblyInfo.cs
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Small-Assignments\CactusHeaven\logging_service\obj\Debug\netcoreapp2.1\logging_service.dll
+C:\Users\Rakel\Documents\GitHub\VEFT-H18\Small-Assignments\CactusHeaven\logging_service\obj\Debug\netcoreapp2.1\logging_service.pdb

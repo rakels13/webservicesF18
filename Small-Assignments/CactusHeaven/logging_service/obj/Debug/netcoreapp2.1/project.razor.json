@@ -1,0 +1,14 @@
+{
+  "ProjectFilePath": "c:\\Users\\Rakel\\Documents\\GitHub\\VEFT-H18\\Small-Assignments\\CactusHeaven\\logging_service\\logging_service.csproj",
+  "TargetFramework": "netcoreapp2.1",
+  "TagHelpers": [],
+  "Configuration": {
+    "ConfigurationName": "UnsupportedRazor",
+    "LanguageVersion": "1.0",
+    "Extensions": [
+      {
+        "ExtensionName": "UnsupportedRazorExtension"
+      }
+    ]
+  }
+}
