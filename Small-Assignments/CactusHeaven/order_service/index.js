@@ -79,16 +79,24 @@ const configureMessageBroker = channel => {
             throw new Error(err);
           }
           orderData.items.forEach(element => {
-            OrderItem.create({
-              description: element.description,
-              quantity: element.quantity,
-              unitPrice: element.unitPrice,
-              rowPrice: element.quantity * element.unitPrice,
-              orderId: createdOrder._id
-            });
+            OrderItem.create(
+              {
+                description: element.description,
+                quantity: element.quantity,
+                unitPrice: element.unitPrice,
+                rowPrice: element.quantity * element.unitPrice,
+                orderId: createdOrder._id
+              },
+              error => {
+                if (error) {
+                  throw new Error(erro);
+                }
+              }
+            );
           });
         }
       );
+      console.log("Order created");
     },
     { noAck: true }
   );

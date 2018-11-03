@@ -36,11 +36,11 @@ namespace logging_service
                     string path = @".\log.txt";
                     if (!File.Exists(path))
                     {
-                        File.WriteAllText(path, "Log: ${message}" + Environment.NewLine);
+                        File.WriteAllText(path, $"Log: {message}" + Environment.NewLine);
                     }
                     else
                     {
-                        File.AppendAllText(path, "Log: ${message}" + Environment.NewLine);
+                        File.AppendAllText(path, $"Log: {message}" + Environment.NewLine);
                     }
                 };
                 channel.BasicConsume(queue: queueName,
