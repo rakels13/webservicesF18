@@ -1,0 +1,14 @@
+-- Here you should declare all commands necessary to recreate the application in Heroku
+
+-- Create applications
+
+-- Assign them to certain remotes
+
+-- Assign environmental variables
+-- Database connection strings
+
+-- Worker intervals
+
+-- Deploy
+
+-- Run worker dynos
